@@ -1,5 +1,3 @@
-import constructionIll from './construction.svg';
-
 import './App.css';
 
 function App() {
