@@ -1,22 +1,15 @@
-import logo from './logo.svg';
+import constructionIll from './construction.svg';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <div className="empty"></div>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Under Construction <a href="https://github.com/blueedgetechno">{"</>"}</a>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
