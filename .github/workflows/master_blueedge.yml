@@ -8,9 +8,6 @@ on:
     branches:
       - master
 
-env:
-  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-
 jobs:
   build-and-deploy:
     runs-on: 'windows-latest'
@@ -20,9 +17,13 @@ jobs:
 
     - name: Setup MSBuild path
       uses: microsoft/setup-msbuild@v1.0.0
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.2
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
     - name: Restore NuGet packages
       run: nuget restore
