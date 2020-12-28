@@ -12,7 +12,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "node node_modules/react-scripts/scripts/start.js",
+    "start": "node node_modules/react-scripts/scripts/start.js"
   },
   "eslintConfig": {
     "extends": [
