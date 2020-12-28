@@ -12,7 +12,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "aubbax"
+    "start": "aubbax",
+    "build": "aubbax"
   },
   "eslintConfig": {
     "extends": [
