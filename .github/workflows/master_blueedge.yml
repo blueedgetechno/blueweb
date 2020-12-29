@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'blueedge'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_aa6d97c9b24345bca1bece230ba51f58 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_0ccb1c7c3e8b421a97a8654451ad71a5 }}
         package: .
