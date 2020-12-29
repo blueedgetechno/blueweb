@@ -1,8 +1,0 @@
-{
-    "appService.zipIgnorePattern": [
-        "node_modules{,/**}",
-        ".vscode{,/**}"
-    ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/9fa5459d-fef6-4e20-9ee5-8e15ded8d05b/resourceGroups/blueedgetechno/providers/Microsoft.Web/sites/blueedge",
-    "appService.deploySubpath": "."
-}

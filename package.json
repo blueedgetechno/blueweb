@@ -14,12 +14,6 @@
   "scripts": {
     "start": "node node_modules/react-scripts/scripts/start.js"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
