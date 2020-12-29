@@ -1,3 +1,3 @@
 ### Perception is the reality
 
-site: [blueedge.azurewebsites.net](https://blueedge.azurewebsites.net/)
+site: [blueedge.me](https://blueedge.me)
