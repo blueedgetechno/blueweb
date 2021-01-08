@@ -52,7 +52,7 @@ export default function Unescape() {
       console.log(email);
 
       var url = "https://api.blueedge.me/api"
-      if(process.env.NODE_ENV=="development"){
+      if(process.env.REACT_APP_DEVELOPEMENT=="development"){
         url+="/test"
       }
 
