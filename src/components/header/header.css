@@ -1,0 +1,81 @@
+.header {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  z-index: 5;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 150px;
+  height: 100%;
+}
+
+.logo,
+.headNav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo span {
+  height: 100%;
+  font-weight: bolder;
+  font-size: 1.4em;
+  /* height: 25px; */
+  height: auto;
+  color: #f9f4f4;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+.headNav {}
+
+.navList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navList span {
+  font-size: 1.2em;
+  margin: auto 40px;
+  color: #f9f4f4;
+}
+
+.sideBar {
+  display: none;
+}
+
+.sideIcon {
+  color: #fefefe;
+}
+
+.sideMenu .MuiPaper-root {
+  background: #1580dd;
+  color: #f9f4f4;
+}
+
+@media only screen and (max-width: 650px) {
+  .sideBar {
+    display: block;
+  }
+
+  .headerContainer {
+    padding: 0 30px;
+  }
+
+  .navList {
+    display: none;
+  }
+
+  .header {
+    height: 60px;
+  }
+}

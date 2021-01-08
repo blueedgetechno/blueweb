@@ -1,0 +1,13 @@
+.procode {
+  margin-top: 20px;
+  font-size: 1.5em;
+  line-height: 25px;
+  color: #fefefe;
+}
+
+.CodeMirror-line {
+  overflow: visible;
+  white-space: pre-wrap;
+  word-break: normal;
+  margin: 0;
+}

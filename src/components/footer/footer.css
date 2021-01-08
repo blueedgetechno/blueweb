@@ -1,0 +1,26 @@
+.footer{
+  color: #fefefe;
+  background: #1b1b1b;
+}
+
+.footCont{
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.socialinks{
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.3em;
+}
+
+.socialinks a{
+  text-decoration: none;
+}
+
+.socialinks span{
+  font-size: 0.8em;
+}

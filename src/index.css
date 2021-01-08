@@ -1,13 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  max-width: 100vw;
+  /* overflow: hidden; */
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+  background-color: rgba(254, 254, 254, 0);
+}
+
+body::-webkit-scrollbar-thumb {
+  width: 8px;
+  border-radius: 0 0 4px 4px;
+  background-color: rgba(13, 75, 191, 0.82);
+}
+
+#root {
+  position: relative;
+  min-height: 100vh;
+  /* overflow-x: hidden; */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.App {
+  min-height: 100vh;
+  background-image: linear-gradient(120deg, #003bb8 0%, #269edb 100%);
 }
