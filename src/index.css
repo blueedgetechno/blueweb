@@ -27,6 +27,10 @@ body::-webkit-scrollbar-thumb {
   background-color: rgba(13, 75, 191, 0.82);
 }
 
+a{
+  color: inherit;
+}
+
 #root {
   position: relative;
   min-height: 100vh;
