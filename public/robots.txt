@@ -1,3 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
+# Perception is the reality (so lame)
+
 User-agent: *
 Disallow:
