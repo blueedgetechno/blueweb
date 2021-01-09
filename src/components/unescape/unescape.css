@@ -8,6 +8,7 @@
 
 body[data-page="unescape"] {
   --background: #111111;
+  overflow-x: hidden;
 }
 
 body[data-page="unescape"] .header {
@@ -48,7 +49,7 @@ body[data-page="unescape"] .App {
 .description {
   width: 60%;
   height: 100%;
-  padding: 40px 0 0 0;
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,7 +104,7 @@ body[data-page="unescape"] .App {
 
 .divider {
   height: 150px;
-  overflow: 'hidden';
+  overflow: hidden;
   max-width: 100%;
   margin-top: -150px;
   filter: drop-shadow(0 -3px 0px rgba(74, 74, 74, 0.75));
@@ -114,13 +115,14 @@ h1 {
 }
 
 .gamedetails {
-  overflow-x: hidden;
+  width: 100%;
+  /* overflow-x: hidden; */
 }
 
 .gamepara {
   position: relative;
   display: flex;
-  height: 600px;
+  min-height: 600px;
   margin: 30px 0;
 }
 
@@ -153,6 +155,10 @@ h1 {
   align-items: center;
 }
 
+.imagecont .paratitle{
+  display: none;
+}
+
 .paraimage {
   position: relative;
   width: auto;
@@ -168,7 +174,7 @@ h1 {
 }
 
 .imageframe {
-  position: absolute;
+  position: relative;
   width: 400px;
   height: 400px;
   margin-top: -8px;
@@ -185,6 +191,7 @@ h1 {
   bottom: 0;
   width: 400px;
   height: 40px;
+  margin-top: 30px;
   max-width: 100%;
   z-index: 2;
   color: rgba(221, 219, 219, 0.72);
@@ -272,6 +279,7 @@ h1 {
 .subinp:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px #090909 inset;
   -webkit-text-fill-color: #d8dde2;
+  outline: none;
 }
 
 .subtn {
@@ -308,6 +316,7 @@ button:disabled {
 .subtxt span {
   /* padding: 0 20px; */
   width: 550px;
+  max-width: 100%;
   color: rgba(196, 196, 196, 0.84);
 }
 
@@ -478,4 +487,134 @@ button:disabled {
   border: 2px solid #dbd3d3;
   border-radius: 20px;
   margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 650px) {
+  .splashScreen {
+    background-image: url(../../assets/img/unescape/splashMini.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 750px;
+  }
+
+  .splashScreen img {
+    display: none;
+  }
+
+  .description {
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  .description .title {
+    height: auto;
+  }
+
+  .titleLetters {
+    font-size: 60px;
+  }
+
+  .slogan {
+    font-size: 42px;
+  }
+
+  .gamedesc {
+    width: 100%;
+    padding: 40px 0 20px 0;
+    margin-top: 180px;
+  }
+
+  .gamedesc span {
+    width: 90%;
+    text-shadow: 2px 2px 2px #1f1f1f;
+  }
+
+  .subscribeCont {
+    min-height: 100px;
+  }
+
+  .subscribe {
+    width: 350px;
+    /* height: 48px; */
+  }
+
+  .subtxt{
+    position: relative;
+    z-index: 2;
+    background: rgba(8, 8, 8, 0.5);
+  }
+
+  .subtxt span {
+    width: 360px;
+    color: #dddddd;
+  }
+
+  .divider {
+    margin-top: -125px;
+  }
+
+  .gamedetails {
+    overflow: hidden;
+  }
+
+  .gamepara {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    min-height: 800px;
+  }
+
+  .gamepara:nth-child(even) {
+    flex-direction: column-reverse;
+  }
+
+  .imagecont {
+    width: 360px;
+    height: 480px;
+    padding: 0;
+  }
+
+  /* .imageframe {
+    bottom: 0;
+  } */
+  .imagecont .paratitle {
+    display: block;
+  }
+
+  .paracol .paratitle {
+    display: none;
+  }
+
+  .paratitle {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .gamepara:nth-child(2) .paratitle {
+    font-size: 30px;
+  }
+
+  .imageframe {
+    width: 320px;
+    height: 320px;
+  }
+
+  .paracol {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    display: block;
+  }
+
+  .paratext {
+    padding: 0 40px;
+  }
+
+  .paratext mark {
+    color: #7dbaff;
+  }
+
+  .subsband {
+    height: 150px;
+  }
 }

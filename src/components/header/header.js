@@ -40,8 +40,10 @@ export default function Header(){
             onClose={handleClose}
           >
             <MenuItem><a href="/unescape">Unescape</a></MenuItem>
+            <MenuItem>
+              <a href="https://github.com/blueedgetechno">Github</a>
+            </MenuItem>
             <MenuItem><a href="mailto:blueedgetechno@gmail.com">Contact</a></MenuItem>
-            <MenuItem onClick={handleClose}>Close</MenuItem>
           </Menu>
         </div>
       </div>

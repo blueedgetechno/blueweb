@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 
 import './unescape.css';
+// import './rough.css';
 
 import SplashScreen from '../../assets/img/unescape/splash.jpg';
 import demoPic from '../../assets/img/unescape/example.jpg';
@@ -171,17 +172,12 @@ export default function Unescape() {
         </div>
         <div className="gamedetails">
           <div className="gamepara">
-            <div className="floaterCont">
-              <div className="tk-blob floater">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 747.2 726.7">
-                  <path d="M539.8 137.6c98.3 69 183.5 124 203 198.4 19.3 74.4-27.1 168.2-93.8 245-66.8 76.8-153.8 136.6-254.2 144.9-100.6 8.2-214.7-35.1-292.7-122.5S-18.1 384.1 7.4 259.8C33 135.6 126.3 19 228.5 2.2c102.1-16.8 213.2 66.3 311.3 135.4z" />
-                </svg>
-              </div>
-            </div>
             <Fade left={true}>
               <div className="imagecont" id="firstCont">
-                <img className="paraimage" src={unexp} alt="unexp"/>
-                <div className="imageframe"></div>
+                <div className="paratitle">The realm of reality</div>
+                <div className="imageframe">
+                  <img className="paraimage" src={unexp} alt="unexp"/>
+                </div>
                 <div className="levelintro">- A still from the ongoing game unescape</div>
               </div>
             </Fade>
@@ -216,14 +212,16 @@ export default function Unescape() {
             </Fade>
             <Fade right={true}>
               <div className="imagecont">
-                <img
-                  className="paraimage"
-                  id="puzzleImg"
-                  onClick={()=>{
-                    setPicture((picture+1)%5);
-                  }}
-                  src={insights[picture]} alt=""/>
-                <div className="imageframe"></div>
+                <div className="paratitle">The state of subjectivity</div>
+                <div className="imageframe">
+                  <img
+                    className="paraimage"
+                    id="puzzleImg"
+                    onClick={()=>{
+                      setPicture((picture+1)%5);
+                    }}
+                    src={insights[picture]} alt=""/>
+                </div>
                 <div className="levelintro" id="fewords">{words[picture]}</div>
               </div>
             </Fade>

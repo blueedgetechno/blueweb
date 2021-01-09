@@ -58,8 +58,9 @@ a:visited {
 }
 
 .sideMenu .MuiPaper-root {
-  background: #1580dd;
+  background: var(--background);;
   color: #f9f4f4;
+  z-index: 10;
 }
 
 @media only screen and (max-width: 650px) {

@@ -1,11 +1,22 @@
 body[data-page="home"]{
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+body[data-page="home"] .App{
+  --background: #003bb8;
+  background-image: linear-gradient(120deg, #003bb8 0%, #269edb 100%);
+}
+
+body[data-page="home"] .footer{
+  color: #fefefe;
+  background: #1b1b1b;
 }
 
 .home {
   width: 100%;
   max-width: 100vw;
-  height: calc(100vh - 80px);
+  /* height: calc(100vh - 80px); */
+  /* margin-bottom: 180px; */
 }
 
 .intro {
@@ -75,6 +86,21 @@ body[data-page="home"]{
   background: #26e05a;
 }
 
+.procode {
+  margin-top: 20px;
+  /* font-size: 1.5em; */
+  font-size: 19.5px;
+  line-height: 25px;
+  color: #fefefe;
+}
+
+.CodeMirror-line {
+  overflow: visible;
+  white-space: pre-wrap;
+  word-break: normal;
+  margin: 0;
+}
+
 .front{
   opacity: 1;
   transform: rotateZ(0);
@@ -120,14 +146,17 @@ body[data-page="home"]{
 .profileImage {
   position: relative;
   right: -60px;
-  width: auto;
+  width: 900px;
+  height: 820px;
+  display: grid;
+  place-items: baseline end;
 }
 
 .introImage{
   position: relative;
   z-index: 3;
-  top: 0;
-  left: 0;
+  /* top: 0; */
+  /* left: 0; */
   max-width: 100%;
   max-width: 500px;
   height: auto;
@@ -150,8 +179,8 @@ body[data-page="home"]{
 
 .ringCircle{
   position: absolute;
-  top: 0;
-  left: 0;
+  /* top: 0; */
+  /* left: 0; */
   width: 500px;
   height: 500px;
   transform-origin: center;
@@ -283,25 +312,30 @@ body[data-page="home"]{
   .intro{
     flex-direction: column-reverse;
     justify-content: unset;
-    padding-top: 10px;
+    padding-top: 0;
     align-items: center;
-    /* overflow: hidden; */
   }
 
   .profileImage{
     transform-origin: center;
+    height: 650px;
     --winWidth: 0.55;
     transform: scale(var(--winWidth));
     right: 0;
-    align-self: center;
+    place-items: baseline center;
   }
 
   .introCards{
     /* display: none; */
-    width: 78%;
-    height: 600px;
+    width: 96%;
+    height: 300px;
+    margin: 0;
     transform-origin:top left;
     transform: scale(0.65);
     align-self: flex-end;
+  }
+
+  .procode{
+    font-size: 17px;
   }
 }
