@@ -205,11 +205,11 @@ export default function Unescape() {
                 <div className="paratitle">The state of subjectivity</div>
                 <div className="paratext">
                   The game offers a <mark>variety of puzzles</mark> and tasks
-                  that will <mark>challenge</mark> your <mark>problem-solving</mark>
+                  that will <mark>challenge</mark> your <mark>problem-solving </mark>
                   and <mark>lateral thinking</mark> skills.
                   <br/><br/>
                   The <mark>number</mark> and <mark>difficulty</mark> of puzzles will
-                  <mark>increase</mark> as you progress through the game and some
+                  <mark> increase</mark> as you progress through the game and some
                   problems require you to think <mark>outside the box</mark> 📦.
                 </div>
               </div>
