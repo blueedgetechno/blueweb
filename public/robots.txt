@@ -1,5 +1,6 @@
 # https://www.robotstxt.org/robotstxt.html
-# Perception is the reality (so lame)
+# Perception is the reality
+# Robots will take over soon
 
 User-agent: *
 Disallow:
