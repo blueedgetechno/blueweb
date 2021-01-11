@@ -18,7 +18,7 @@ export default function Footer(){
     <div className="footer">
       <div className="footCont">
         <span className="copyrightText">
-          Copyright © 2020. Blue Edge. All rights reserved
+          Copyright © 2021. Blue Edge. All rights reserved
         </span>
         <div className="socialinks">
           <span>Follow me</span>
