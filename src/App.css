@@ -147,7 +147,7 @@ body[data-page="home"] .footer{
   position: relative;
   right: -60px;
   width: 900px;
-  height: 820px;
+  height: 840px;
   display: grid;
   place-items: baseline end;
 }

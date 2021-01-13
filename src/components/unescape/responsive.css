@@ -1,0 +1,154 @@
+@media only screen and (max-width: 650px) {
+  .splashScreen {
+    background-image: url(../../assets/img/unescape/splashMini.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 750px;
+  }
+
+  .splashScreen img {
+    display: none;
+  }
+
+  .description {
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  .description .title {
+    height: auto;
+  }
+
+  .titleLetters {
+    font-size: 60px;
+  }
+
+  .slogan {
+    font-size: 42px;
+  }
+
+  .gamedesc {
+    width: 100%;
+    padding: 40px 0 20px 0;
+    margin-top: 180px;
+  }
+
+  .gamedesc span {
+    width: 90%;
+    text-shadow: 2px 2px 2px #1f1f1f;
+  }
+
+  .subscribeCont {
+    min-height: 100px;
+  }
+
+  .subscribe {
+    width: 350px;
+    /* height: 48px; */
+  }
+
+  .subtxt {
+    position: relative;
+    z-index: 2;
+    background: rgba(8, 8, 8, 0.5);
+  }
+
+  .subtxt span {
+    width: 360px;
+    color: #dddddd;
+  }
+
+  .divider {
+    margin-top: -125px;
+  }
+
+  .gamedetails {
+    overflow: hidden;
+  }
+
+  .gamepara {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    min-height: 800px;
+  }
+
+  .gamepara:nth-child(even) {
+    flex-direction: column-reverse;
+  }
+
+  .imagecont {
+    width: 360px;
+    height: 480px;
+    padding: 0;
+  }
+
+  /* .imageframe {
+    bottom: 0;
+  } */
+  .imagecont .paratitle {
+    display: block;
+  }
+
+  .paracol .paratitle {
+    display: none;
+  }
+
+  .paratitle {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .gamepara:nth-child(2) .paratitle {
+    font-size: 30px;
+  }
+
+  .imageframe {
+    width: 320px;
+    height: 320px;
+  }
+
+  .paracol {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    display: block;
+  }
+
+  .paratext {
+    padding: 0 40px;
+  }
+
+  .paratext mark {
+    color: #7dbaff;
+  }
+
+  .subsband {
+    height: 150px;
+  }
+
+  .puzzleCont{
+    background: #1b1b1b;
+  }
+
+  .puzzIcon{
+    flex-direction: column;
+  }
+
+  .puzzIcon span{
+    margin: 20px 0 0 0;
+  }
+
+  .hiddenpuzz{
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .hiddenpuzz span {
+    margin-bottom: 15px;
+  }
+
+  .secretPuzz{
+    margin-bottom: 15px;
+  }
+}

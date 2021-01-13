@@ -15,7 +15,7 @@ import spotifyIcon from './assets/img/icons/spotify.png';
 import youtubeIcon from './assets/img/icons/youtube.png';
 
 import PythonIcon from './assets/img/icons/python.png';
-import ReactIcon from './assets/img/icons/react.png';//https://iconscout.com/icons/react
+import ReactIcon from './assets/img/icons/react.png'; //https://iconscout.com/icons/react
 import NodeJsIcon from './assets/img/icons/nodejs.png';
 import UnityIcon from './assets/img/icons/unity.png';
 import BlenderIcon from './assets/img/icons/blender.png';

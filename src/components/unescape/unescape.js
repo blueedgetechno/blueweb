@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import axios from 'axios';
 
 import './unescape.css';
-// import './rough.css';
+import './responsive.css';
+// import demoPic from '../../assets/img/unescape/example.jpg';
 
 import SplashScreen from '../../assets/img/unescape/splash.jpg';
-import demoPic from '../../assets/img/unescape/example.jpg';
 import unexp from '../../assets/img/unescape/unexp.png';
 
 import pinlock from '../../assets/img/unescape/insights/pinlock.png';
@@ -15,8 +15,11 @@ import devquote from '../../assets/img/unescape/insights/devquote.png';
 import brokenStar from '../../assets/img/unescape/insights/brokenStar.png';
 
 import Fade from 'react-reveal/Fade';
+import Button from '@material-ui/core/Button';
+
 import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
 import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
+import ExtensionIcon from '@material-ui/icons/Extension';
 
 export default function Unescape() {
 
@@ -26,6 +29,21 @@ export default function Unescape() {
   const [isError, setError] = useState(false);
   const [message, setMessage] = useState("An error occured...");
   const [picture, setPicture] = useState(0);
+
+  const [showPuzz, setShowPuzz] = useState(()=>{
+    if(localStorage.getItem('showPuzz')=="true"){
+      return true;
+    }else{
+      console.log("False, i guess why");
+      return false;
+    }
+  });
+
+  const [isHidden, setHidden] = useState(true);
+  const [secpuz, setSecpuz] = useState("");
+  const [inputClass, setInputClass] = useState("");
+  const [prompt, setPrompt] = useState("type here...");
+  const [isCorrect, setisCorrect] = useState(false);
 
   const insights = [
     pinlock,
@@ -54,6 +72,7 @@ export default function Unescape() {
 
       var url = "https://api.blueedge.me/api"
       if(process.env.REACT_APP_DEVELOPEMENT=="development"){
+        console.log("Isdevelopment");
         url+="/test"
       }
 
@@ -66,6 +85,11 @@ export default function Unescape() {
         .then(res=>{
           if(res.data.status==200){
             setSent(true);
+            setShowPuzz(true);
+            localStorage.setItem('showPuzz', "true");
+            setTimeout(()=>{
+              window.location = "/unescape#puzzContainer";
+            },2000);
           }else{
             if(res.data.message.includes("duplicate key")){
               setMessage("Email already exist");
@@ -79,6 +103,28 @@ export default function Unescape() {
           // console.log("CATCH");
           // console.log(err.message);
         })
+    }
+  }
+
+  const placeSec = (ele)=>{
+    if(!isCorrect){
+      setSecpuz(ele.target.value);
+      setInputClass("");
+      setPrompt("")
+    }
+  }
+
+  const checkSec = ()=>{
+    if(
+      secpuz.length<=10 &&
+      !isCorrect &&
+      secpuz.toLowerCase()==process.env.REACT_APP_SECRET_PUZZ){
+      setisCorrect(true);
+      setInputClass("correctAns");
+    }else if (!isCorrect) {
+      setSecpuz("");
+      setPrompt("Wrong password");
+      setInputClass("wrongAns");
     }
   }
 
@@ -227,18 +273,47 @@ export default function Unescape() {
             </Fade>
           </div>
         </div>
-        <div className="puzzleCont">
-          <div className="hiddenpuzz">
+        <div className={showPuzz?"puzzleCont":""} id="puzzContainer">
+          {isHidden && showPuzz?(
+            <div className="puzzIcon"
+              onClick={()=>{
+                setHidden(false);
+              }}>
+              <ExtensionIcon/>
+              <span>Click me</span>
+            </div>
+          ):null}
+          {!isHidden && !isCorrect?(
+            <div className="hiddenpuzz">
+              <span>
+                If you have noticed there's is a hidden password (atmost 10 letters)
+                on this website. Find it to unlock a surprise
+              </span>
+              <input
+                className={"secretPuzz "+inputClass}
+                type="text"
+                value={secpuz}
+                placeholder={prompt}
+                onChange={placeSec.bind(this)}
+              />
+              <Button
+                variant="contained"
+                onClick={checkSec}
+                >check</Button>
+            </div>
+          ):null}
+          {isCorrect?(
             <span>
-              If you have noticed there's is a password (atmost 10 letters)
-              on this website. <br/>
-              Find it to unlock a surprise
+              Correct !!{" "}
+              <a href="https://bit.ly/2Ljsyq7" target="_blank">Here you go</a>
+              {" "}. . . , Thanks me later
             </span>
-            <input type="text"/>
-          </div>
+          ):null}
         </div>
         <div className="subsband">
-          <a href="#"><div className="subbutton">Subscribe Now !!</div></a>
+          <a href="#">
+            <div className="subbutton">Subscribe Now !!</div>
+          </a>
         </div>
       </div>
     </div>
