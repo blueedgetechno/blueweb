@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './App.css';
 
 import './assets/css/code.css';
@@ -15,6 +14,8 @@ import spotifyIcon from './assets/img/icons/spotify.png';
 import youtubeIcon from './assets/img/icons/youtube.png';
 
 import PythonIcon from './assets/img/icons/python.png';
+import JavaScriptIcon from './assets/img/icons/javaScript.png';
+
 import ReactIcon from './assets/img/icons/react.png'; //https://iconscout.com/icons/react
 import NodeJsIcon from './assets/img/icons/nodejs.png';
 import UnityIcon from './assets/img/icons/unity.png';
@@ -22,7 +23,14 @@ import BlenderIcon from './assets/img/icons/blender.png';
 import MongoDBIcon from './assets/img/icons/mongo.png';
 import AzureIcon from './assets/img/icons/azure.png';
 
-import {IntroCard, LangCard, SocialCard, ProjectCard} from './cards.js';
+import {
+  IntroCard,
+  LangCard,
+  SocialCard,
+  ProjectCard
+} from './cards.js';
+
+import Projects from './components/front/projects.js'
 
 function App() {
 
@@ -89,6 +97,7 @@ function App() {
   }
 
   const clicked = (altValue)=>{
+    return;
     window.open(links[altValue], "_blank");
   }
 
@@ -106,21 +115,22 @@ function App() {
           <div className="ringCircle innerCircle">
             <img onClick={()=>{
               clicked("twitter");
-            }} className="planetCircle" src={twitterIcon} alt="twitter"/>
+            }} className="planetCircle" src={PythonIcon} alt="twitter"/>
             <img onClick={()=>{
               clicked("github");
-            }} className="planetCircle" src={githubIcon} alt="github"/>
+            }} className="planetCircle" src={JavaScriptIcon} alt="github"/>
           </div>
           <div className="ringCircle outerCircle">
-            <img className="planetCircle" src={PythonIcon} alt=""/>
-            <img className="planetCircle" src={MongoDBIcon} alt=""/>
-            <img className="planetCircle" src={AzureIcon} alt=""/>
-            <img className="planetCircle" src={UnityIcon} alt=""/>
-            <img className="planetCircle" src={NodeJsIcon} alt=""/>
             <img className="planetCircle" src={ReactIcon} alt=""/>
+            <img className="planetCircle" src={BlenderIcon} alt=""/>
+            <img className="planetCircle" src={UnityIcon} alt=""/>
+            <img className="planetCircle" src={AzureIcon} alt=""/>
+            <img className="planetCircle" src={MongoDBIcon} alt=""/>
+            <img className="planetCircle" src={NodeJsIcon} alt=""/>
           </div>
         </div>
       </div>
+      {/* <Projects/> */}
     </div>
   )
 }

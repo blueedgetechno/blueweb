@@ -1,0 +1,17 @@
+.projects{
+  height: auto;
+  /* background: rgba(17, 17, 17, 0.25); */
+}
+
+.protitle{
+  display: grid;
+  place-items: center;
+  height: 150px;
+}
+
+.protitle span{
+  color: #fefefe;
+  font-size: 60px;
+  font-weight: bold;
+  font-family: inherit;
+}
