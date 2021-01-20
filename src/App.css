@@ -231,7 +231,7 @@ body[data-page="home"] .footer{
 }
 
 .innerCircle .planetCircle{
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .innerCircle .planetCircle:nth-child(1){

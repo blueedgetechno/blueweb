@@ -47,6 +47,19 @@
     /* height: 48px; */
   }
 
+  .thanks{
+    font-size: 1.2em;
+  }
+
+  .errortext{
+    font-size: 1.03em;
+  }
+
+  .twit{
+    font-size: 36px !important;
+    padding: 0 8px;
+  }
+
   .subtxt {
     position: relative;
     z-index: 2;

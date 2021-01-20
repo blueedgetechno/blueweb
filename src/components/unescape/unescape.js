@@ -20,6 +20,7 @@ import Button from '@material-ui/core/Button';
 import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
 import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
 import ExtensionIcon from '@material-ui/icons/Extension';
+import TwitterIcon from '@material-ui/icons/Twitter';
 
 export default function Unescape() {
 
@@ -34,7 +35,7 @@ export default function Unescape() {
     if(localStorage.getItem('showPuzz')=="true"){
       return true;
     }else{
-      console.log("False, i guess why");
+      console.log("False, I guess why");
       return false;
     }
   });
@@ -61,6 +62,8 @@ export default function Unescape() {
     "A profound sense of incompleteness"
   ]
 
+  const msg = "Subscribe%20to%20the%20game%20Unescape%2C%20%40blueedgetechno%20is%20working%20on.%0A%0AA%203d%20game%2C%20full%20of%20secrets%20and%20puzzles%20to%20test%20your%20critical%20thinking%20throughout%20the%20way.%0A%0Asubscribe%20now%3A%20https%3A%2F%2Fblueedge.me%2Funescape"
+
   const checkEmail = (ele)=>{
     setLegal(ele.target.checkValidity() && ele.target.value!="");
     setEmail(ele.target.value);
@@ -70,7 +73,8 @@ export default function Unescape() {
     if(isLegal){
       console.log(email);
 
-      var url = "https://api.blueedge.me/api"
+      // var url = "https://api.blueedge.me/api"
+      var url = "https://blueend.azurewebsites.net/api"
       if(process.env.REACT_APP_DEVELOPEMENT=="development"){
         console.log("Isdevelopment");
         url+="/test"
@@ -86,10 +90,12 @@ export default function Unescape() {
           if(res.data.status==200){
             setSent(true);
             setShowPuzz(true);
+            if(localStorage.getItem('showPuzz')!="true"){
+              setTimeout(()=>{
+                window.location = "/unescape#puzzContainer";
+              },2000);
+            }
             localStorage.setItem('showPuzz', "true");
-            setTimeout(()=>{
-              window.location = "/unescape#puzzContainer";
-            },2000);
           }else{
             if(res.data.message.includes("duplicate key")){
               setMessage("Email already exist");
@@ -182,6 +188,13 @@ export default function Unescape() {
                   {emailsent & !isError?
                     <div className="thankscontainer">
                       <span className="thanks">Thanks for subscribing</span>
+                      <a href={false?
+                        "https://twitter.com/intent/tweet?original_referer=https://blueedge.me&text="
+                        + msg: "https://bit.ly/39RMoAX"}
+                      target="_blank"
+                      title="spread the word">
+                        <TwitterIcon className="twit"/>
+                      </a>
                     </div>
                     :null}
 
@@ -231,7 +244,7 @@ export default function Unescape() {
               <div className="paracol">
                 <div className="paratitle">The realm of reality</div>
                 <div className="paratext">
-                  A <mark>3d game</mark>, full of <mark>secrets and puzzle</mark> to test your
+                  A <mark>3d game</mark>, full of <mark>secrets and puzzles</mark> to test your
                   <mark> critical thinking</mark> throughout the way.
                   <br/><br/>
                   In this immersive <mark>point & click </mark>puzzler, you will face

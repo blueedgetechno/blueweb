@@ -340,6 +340,24 @@ button:disabled {
   color: #e7272a;
 }
 
+.twit{
+  z-index: 1;
+  font-size: 42px !important;
+  padding: 0 15px;
+  margin-top: 5px;
+  color: #1da1f2;
+  background: inherit;
+  transform-origin: center;
+  transform: scale(1);
+  animation: popup 1s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.twit:hover{
+  transform: scale(1.1);
+  transition: 0.5s ease-in-out;
+}
+
 .checkCont::before {
   content: "";
   position: absolute;
