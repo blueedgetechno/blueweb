@@ -23,8 +23,9 @@ ReactDOM.render(
       <div className="App">
         <Header/>
         <Switch>
-          <Route exact path='/' component = {App}/>
+          {/* <Route exact path='/' component = {App}/> */}
           <Route exact path='/unescape' component = {Unescape}/>
+          <Route component={App} />
         </Switch>
         <Footer/>
       </div>
