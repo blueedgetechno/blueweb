@@ -74,7 +74,7 @@ export default function Unescape() {
       console.log(email);
 
       // var url = "https://api.blueedge.me/api"
-      var url = "https://blueend.azurewebsites.net/api"
+      var url = "https://blueend.herokuapp.com/api"
       if(process.env.REACT_APP_DEVELOPEMENT=="development"){
         console.log("Isdevelopment");
         url+="/test"
