@@ -5,6 +5,8 @@ import DehazeIcon from '@material-ui/icons/Dehaze';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
+import {Link} from 'react-router-dom';
+
 export default function Header(){
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -19,11 +21,19 @@ export default function Header(){
   return (
     <div className="header">
       <div className="headerContainer">
-        <div className="logo"><span><a href="/">Blue Edge</a></span></div>
+        <div className="logo">
+          <span>
+            <Link to="/">Blue Edge</Link>
+          </span>
+        </div>
         <div className="headNav">
           <div className="navList">
-            <span><a href="/">Home</a></span>
-            <span><a href="/unescape">Unescape</a></span>
+            <span>
+              <Link to="/">Home</Link>
+            </span>
+            <span>
+              <Link to="/unescape">Unescape</Link>
+            </span>
             <span>
               <a href="https://github.com/blueedgetechno" target="_blank" rel="noreferrer">Github</a>
             </span>
