@@ -50,8 +50,8 @@ export default function Header(){
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem><a href="/">Home</a></MenuItem>
-            <MenuItem><a href="/unescape">Unescape</a></MenuItem>
+            <MenuItem><Link to="/">Home</Link></MenuItem>
+            <MenuItem><Link to="/unescape">Unescape</Link></MenuItem>
             <MenuItem>
               <a href="https://github.com/blueedgetechno">Github</a>
             </MenuItem>
