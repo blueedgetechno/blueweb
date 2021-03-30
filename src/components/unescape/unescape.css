@@ -32,6 +32,11 @@ body[data-page="unescape"] .App {
   max-width: 100%;
 }
 
+.subcount{
+  color: #16c13f !important;
+  font-weight: bold;
+}
+
 .physicsWin {
   position: absolute;
   top: 0;

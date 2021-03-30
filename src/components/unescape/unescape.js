@@ -30,6 +30,19 @@ export default function Unescape() {
   const [isError, setError] = useState(false);
   const [message, setMessage] = useState("An error occured...");
   const [picture, setPicture] = useState(0);
+  const [subcount, setSubcount] = useState(0);
+
+  React.useEffect(()=>{
+    var url = "https://blueapi.azurewebsites.net/api/count"
+
+    axios.get(url)
+      .then(res=>{
+        if(res && res.data && res.data.status==200){
+          setSubcount(res.data.result);
+        }
+      }).catch(err=>{
+      })
+  })
 
   const [showPuzz, setShowPuzz] = useState(()=>{
     if(localStorage.getItem('showPuzz')=="true"){
@@ -74,7 +87,7 @@ export default function Unescape() {
       console.log(email);
 
       // var url = "https://api.blueedge.me/api"
-      var url = "https://blueend.herokuapp.com/api"
+      var url = "https://blueapi.azurewebsites.net/api/"
       if(process.env.REACT_APP_DEVELOPEMENT=="development"){
         console.log("Isdevelopment");
         url+="/test"
@@ -217,6 +230,7 @@ export default function Unescape() {
                 <span>
                   Subscribe to the waiting list to be among the first to know
                   when the game is available!
+                  {subcount!=" "?(<span><span class="subcount">{" "}{subcount} peoples</span> have subscribed so far.</span>):null}
                 </span>
               </div>
             </div>
