@@ -8,11 +8,11 @@ import './responsive.css';
 import SplashScreen from '../../assets/img/unescape/splash.jpg';
 import unexp from '../../assets/img/unescape/unexp.png';
 
-import pinlock from '../../assets/img/unescape/insights/pinlock.png';
-import slidepuzz from '../../assets/img/unescape/insights/slidepuzz.png';
-import suitcasePuzz from '../../assets/img/unescape/insights/suitcasePuzz.png';
-import devquote from '../../assets/img/unescape/insights/devquote.png';
-import brokenStar from '../../assets/img/unescape/insights/brokenStar.png';
+// import pinlock from '../../assets/img/unescape/insights/pinlock.png';
+// import slidepuzz from '../../assets/img/unescape/insights/slidepuzz.png';
+// import suitcasePuzz from '../../assets/img/unescape/insights/suitcasePuzz.png';
+// import devquote from '../../assets/img/unescape/insights/devquote.png';
+// import brokenStar from '../../assets/img/unescape/insights/brokenStar.png';
 
 import Fade from 'react-reveal/Fade';
 import Button from '@material-ui/core/Button';
@@ -60,11 +60,11 @@ export default function Unescape() {
   const [isCorrect, setisCorrect] = useState(false);
 
   const insights = [
-    pinlock,
-    slidepuzz,
-    suitcasePuzz,
-    devquote,
-    brokenStar
+    "img/pinlock.png",
+    "img/slidepuzz.png",
+    "img/suitcasePuzz.png",
+    "img/devquote.png",
+    "img/brokenStar.png"
   ]
 
   const words = [
