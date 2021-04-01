@@ -22,6 +22,13 @@ import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
 import ExtensionIcon from '@material-ui/icons/Extension';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
+const blueapi = "https://blueend.herokuapp.com/api/"
+if(process.env.REACT_APP_BLUEAPI!=null){
+  blueapi = process.env.REACT_APP_BLUEAPI;
+}
+
+console.log(blueapi);
+
 export default function Unescape() {
 
   const [email, setEmail] = useState("");
@@ -33,7 +40,7 @@ export default function Unescape() {
   const [subcount, setSubcount] = useState(0);
 
   React.useEffect(()=>{
-    var url = "https://blueapi.azurewebsites.net/api/count"
+    var url = `${blueapi}count`
 
     axios.get(url)
       .then(res=>{
@@ -87,7 +94,7 @@ export default function Unescape() {
       console.log(email);
 
       // var url = "https://api.blueedge.me/api"
-      var url = "https://blueapi.azurewebsites.net/api/"
+      var url = blueapi;
       if(process.env.REACT_APP_DEVELOPEMENT=="development"){
         console.log("Isdevelopment");
         url+="/test"
