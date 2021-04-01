@@ -22,12 +22,10 @@ import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
 import ExtensionIcon from '@material-ui/icons/Extension';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
-const blueapi = "https://blueend.herokuapp.com/api/"
+const blueapi = "https://blueapi.netlify.app/.netlify/functions/index/api/"
 if(process.env.REACT_APP_BLUEAPI!=null){
   blueapi = process.env.REACT_APP_BLUEAPI;
 }
-
-console.log(blueapi);
 
 export default function Unescape() {
 
@@ -93,20 +91,16 @@ export default function Unescape() {
     if(isLegal){
       console.log(email);
 
-      // var url = "https://api.blueedge.me/api"
       var url = blueapi;
-      if(process.env.REACT_APP_DEVELOPEMENT=="development"){
-        console.log("Isdevelopment");
-        url+="/test"
-      }
 
       const body = {
         email: email,
         authkey: process.env.REACT_APP_AUTH_KEY
       }
 
-      axios.post(url,body)
-        .then(res=>{
+      url+=`?email=${body.email}&authkey=${body.authkey}`
+
+      axios.post(url, body).then(res=>{
           if(res.data.status==200){
             setSent(true);
             setShowPuzz(true);
@@ -120,6 +114,7 @@ export default function Unescape() {
             if(res.data.message.includes("duplicate key")){
               setMessage("Email already exist");
             }
+            // console.log(res.data);
             setError(true);
           }
           // console.log("THEN");
@@ -128,6 +123,7 @@ export default function Unescape() {
           setError(true);
           // console.log("CATCH");
           // console.log(err.message);
+          // console.log(err);
         })
     }
   }
