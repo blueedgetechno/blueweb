@@ -1,0 +1,206 @@
+body{
+  --fbox: 295px;
+  /* --stripColor: #1d5df4; */
+  --stripColor: #23fb71;
+  --fcirc: #0db62b;
+  --fcircle: calc(var(--fbox)/3 - 20px);
+}
+
+.progCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headTitle {
+  font-size: 48px;
+  color: #fefefe;
+  margin: 10px 0 0 0;
+}
+
+.flowCont {
+  width: 100%;
+}
+
+.pflow {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.flowrow {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+
+.flowrow:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.flowbox {
+  width: 100%;
+  /* width: var(--fbox); */
+  height: var(--fbox);
+  background: none;
+  /* border: 1px solid var(--stripColor); */
+  position: relative;
+  overflow: hidden;
+}
+
+.proContent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.proContent::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: solid 0 #26f53d;
+  border-radius: 50%;
+  transition: all 200ms ease-in-out;
+  filter: drop-shadow(4px 2px 8px rgba(16, 48, 24, 0.7));
+  opacity: 0;
+}
+
+.proContent:hover::before{
+  width: 110%;
+  height: 110%;
+  opacity: 1;
+  border-width: 4px;
+}
+
+.proSpan {
+  font-size: 1.6em;
+  color: #fefefe;
+  font-weight: 800;
+}
+
+.proContent {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--fcircle);
+  height: var(--fcircle);
+  background: var(--fcirc);
+  border-radius: 50%;
+  color: #ececec;
+  z-index: 5;
+  transform: translate(-50%, -40%);
+  filter: drop-shadow(4px 2px 8px rgba(15, 47, 24, 0.7));
+}
+
+.flowrow:nth-child(even) .flowbox .proContent {
+  top: unset;
+  bottom: 50%;
+  transform: translate(-50%, 40%);
+}
+
+.proDetail {
+  position: absolute;
+  top: 120%;
+  left: -60px;
+  width: 200px;
+  text-align: center;
+  transform: scale(0);
+  transform-origin: center;
+  transition: all 200ms ease-in-out;
+}
+
+.proContent:hover .proDetail {
+  transform: scale(1);
+}
+
+.prodesc {
+  color: #21ff81;
+}
+
+.prodate {
+  font-size: 0.8em;
+  color: #00cd4d;
+}
+
+@media only screen and (min-width: 900px) {
+  .flowbox::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 20px;
+    background: var(--stripColor);
+    z-index: 1;
+    box-sizing: border-box;
+  }
+
+  .flowbox[data-isOdd="false"]::after {
+    top: unset;
+    bottom: 50%;
+  }
+
+  .flowbox[data-isSide="true"]::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: unset;
+    bottom: unset;
+    background: none;
+    border: 20px solid var(--stripColor);
+    border-radius: calc(var(--fbox)*130/295);
+    z-index: 1;
+  }
+
+  .flowbox[data-ornt="1"]::after {
+    bottom: 50%;
+    right: 50%;
+  }
+
+  .flowbox[data-ornt="2"]::after {
+    bottom: calc(50% - 20px);
+    left: 50%;
+  }
+
+  .flowbox[data-ornt="3"]::after {
+    top: calc(50% - 20px);
+    left: 50%;
+  }
+
+  .flowbox[data-ornt="4"]::after {
+    top: 50%;
+    right: 50%;
+  }
+
+  .flowrow:first-child .flowbox:first-child::after {
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 20px;
+    background: var(--stripColor);
+    border: none;
+    border-radius: 0;
+  }
+
+  .flowbox[data-isEnd="true"]::after {
+    right: unset;
+    width: 100%;
+    height: 20px;
+    background: var(--stripColor);
+    background: linear-gradient(90deg, var(--stripColor) 0%, rgba(255, 255, 255, 0) 100%);
+    border: none;
+    border-radius: 0;
+  }
+
+  .flowrow:nth-child(even) .flowbox[data-isEnd="true"]::after {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--stripColor) 100%);
+  }
+
+  .flowbox[data-isNull="true"] {
+    opacity: 0;
+  }
+}

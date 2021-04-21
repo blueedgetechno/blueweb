@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
+import Loader from "react-loader-spinner";
 import axios from 'axios';
 
 import './unescape.css';
 import './responsive.css';
 // import demoPic from '../../assets/img/unescape/example.jpg';
 
+import Progress from "./progress.js";
 import SplashScreen from '../../assets/img/unescape/splash.jpg';
 import unexp from '../../assets/img/unescape/unexp.png';
+// import unexp from '../../assets/img/unescape/unescape.jpg';
 
 // import pinlock from '../../assets/img/unescape/insights/pinlock.png';
 // import slidepuzz from '../../assets/img/unescape/insights/slidepuzz.png';
@@ -32,10 +35,12 @@ export default function Unescape() {
   const [email, setEmail] = useState("");
   const [isLegal, setLegal] = useState(false);
   const [emailsent, setSent] = useState(false);
+  const [isWait, setWait] = useState(false);
   const [isError, setError] = useState(false);
   const [message, setMessage] = useState("An error occured...");
   const [picture, setPicture] = useState(0);
   const [subcount, setSubcount] = useState(0);
+  const [proHeight, setHeight] = useState(600);
 
   React.useEffect(()=>{
     var url = `${blueapi}count`
@@ -90,6 +95,7 @@ export default function Unescape() {
   const sendRequest = ()=>{
     if(isLegal){
       console.log(email);
+      setWait(true);
 
       var url = blueapi;
 
@@ -102,6 +108,7 @@ export default function Unescape() {
 
       axios.post(url, body).then(res=>{
           if(res.data.status==200){
+            setWait(false);
             setSent(true);
             setShowPuzz(true);
             if(localStorage.getItem('showPuzz')!="true"){
@@ -116,11 +123,13 @@ export default function Unescape() {
             }
             // console.log(res.data);
             setError(true);
+            setWait(false);
           }
           // console.log("THEN");
           // console.log(res.data);
         }).catch(err=>{
           setError(true);
+          setWait(false);
           // console.log("CATCH");
           // console.log(err.message);
           // console.log(err);
@@ -147,6 +156,15 @@ export default function Unescape() {
       setSecpuz("");
       setPrompt("Wrong password");
       setInputClass("wrongAns");
+    }
+  }
+
+  const incHeight = ()=>{
+    var pheight = document.getElementById('progress').offsetHeight;
+    if(pheight>proHeight){
+      setHeight(Math.min(proHeight+600, pheight));
+    }else{
+      setHeight(-1);
     }
   }
 
@@ -185,14 +203,27 @@ export default function Unescape() {
                       type="email"
                       pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                       onChange={checkEmail.bind(this)}
-                      placeholder="your email"/>
+                      placeholder="your email"
+                      readOnly={isWait}
+                    />
                     :null}
-                  {emailsent==false & !isError?
+
+                  {emailsent==false & isWait==false & !isError?
                     <button
                       className="subtn"
                       disabled={!isLegal}
                       onClick={sendRequest}
                       >subscribe</button>
+                    :null}
+
+                  {emailsent==false & isWait==true & !isError?
+                    <Loader
+                      className="loaderEmail"
+                      type="TailSpin"
+                      color="#1da1f2"
+                      height={40}
+                      width={40}
+                      />
                     :null}
 
                   {emailsent & !isError?
@@ -233,7 +264,9 @@ export default function Unescape() {
                 <span>
                   Subscribe to the waiting list to be among the first to know
                   when the game is available!
-                  {subcount!=" "?(<span><span class="subcount">{" "}{subcount} peoples</span> have subscribed so far.</span>):null}
+                  {subcount!=" "?(
+                    <span><div className="textDivider"></div><span className="subcount">{" "}{subcount} peoples</span> have subscribed so far.</span>
+                  ):null}
                 </span>
               </div>
             </div>
@@ -289,19 +322,33 @@ export default function Unescape() {
             <Fade right={true}>
               <div className="imagecont">
                 <div className="paratitle">The state of subjectivity</div>
-                <div className="imageframe">
-                  <img
-                    className="paraimage"
-                    id="puzzleImg"
-                    onClick={()=>{
-                      setPicture((picture+1)%5);
-                    }}
-                    src={insights[picture]} alt=""/>
+                <div className="imageframe" onClick={()=>{
+                  setPicture((picture+1)%5);
+                }}>
+                  {insights.map((imgsrc,xi)=>{
+                    return (
+                      <img
+                        className={picture==xi?"paraimage":"hiddenPhoto"}
+                        id="puzzleImg"
+                        src={imgsrc} alt=""/>
+                    )
+                  })}
+
                 </div>
                 <div className="levelintro" id="fewords">{words[picture]}</div>
               </div>
             </Fade>
           </div>
+        </div>
+        <div
+          className={proHeight>0?"prolayout":""}
+          style={{
+            height: proHeight>0?proHeight+'px':'auto',
+            maxHeight: 'max-content'
+          }}
+          >
+          <Progress/>
+          {proHeight>0?<div className="probtn" onClick={incHeight}>Expand</div>:null}
         </div>
         <div className={showPuzz?"puzzleCont":""} id="puzzContainer">
           {isHidden && showPuzz?(

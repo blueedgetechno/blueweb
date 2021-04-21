@@ -22,12 +22,20 @@ body {
 
 body::-webkit-scrollbar {
   width: 8px;
-  background-color: rgba(254, 254, 254, 0);
+  background-color: #fefefe;
+}
+
+body[data-page="home"]::-webkit-scrollbar{
+  background-color: #417eff;
+}
+
+body[data-page="unescape"]::-webkit-scrollbar {
+  background-color: #111111;
 }
 
 body::-webkit-scrollbar-thumb {
   width: 8px;
-  border-radius: 0 0 4px 4px;
+  border-radius: 4px;
   background-color: rgba(13, 75, 191, 0.82);
 }
 

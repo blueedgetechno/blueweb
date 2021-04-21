@@ -26,7 +26,7 @@
   font-size: 0.8em;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 900px) {
   .footCont{
     flex-direction: column-reverse;
   }

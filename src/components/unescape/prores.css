@@ -1,0 +1,34 @@
+@media only screen and (max-width: 900px) {
+  .flowbox::after {
+    content: "";
+    position: absolute;
+    top: unset;
+    left: 30%;
+    width: 20px;
+    height: 100%;
+    background: var(--stripColor);
+    z-index: 1;
+  }
+
+  .proContent{
+    top: 50% !important;
+    left: 30%;
+    bottom: unset;
+    transform: translate(-40%, -40%) !important;
+  }
+
+  .proDetail{
+    top: 30%;
+    left: 110%;
+  }
+
+  .flowrow:first-child .flowbox:first-child::after {
+    top: 50%;
+    height: 50%;
+  }
+
+  .flowbox[data-isEnd="true"]::after {
+    height: 100%;
+    background: linear-gradient(180deg, var(--stripColor) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+}

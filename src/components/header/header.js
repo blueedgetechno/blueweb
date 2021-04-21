@@ -32,7 +32,7 @@ export default function Header(){
               <Link to="/">Home</Link>
             </span>
             <span>
-              <Link to="/unescape">Unescape</Link>
+              <Link to="/unescape">Unescape 🎮</Link>
             </span>
             <span>
               <a href="https://github.com/blueedgetechno" target="_blank" rel="noreferrer">Github</a>

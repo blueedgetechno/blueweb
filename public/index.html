@@ -12,10 +12,54 @@
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Blue Edge</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script type="text/javascript">
+      function addProgress(phrase, content, date=null) {
+        var url = "https://blueapi.netlify.app/.netlify/functions/index/api/"
+        if(location.hostname=="localhost"){
+          url = "http://localhost:9000/.netlify/functions/index/api/"
+        }
+
+        if(phrase==null || content==null){
+          console.log("Bad");
+          return;
+        };
+
+        var dateVal = "", options={year:"numeric",month:"short",day: "numeric" };
+
+        if(date!=null){
+          var date1 = new Date(Date.parse(date));
+          dateVal = date1.toLocaleDateString("en-US",options);
+
+          if(dateVal=="Invalid Date"){
+            console.log("Bad");
+            return;
+          }
+
+        }else{
+          var date1 = new Date();
+          dateVal = date1.toLocaleDateString("en-US",options);
+        }
+
+        url+=`progress?passphrase=${phrase}&date=${dateVal}&content=${content}`
+
+        axios.post(url).then(res=>{
+            if(res.data.status==200){
+              console.log("Done");
+            }else{
+              console.log(res.data.message);
+            }
+          }).catch(err=>{
+            console.log("Error");
+            console.log(err.message);
+          })
+      }
+
+    </script>
   </body>
 </html>

@@ -303,7 +303,7 @@ body[data-page="home"] .footer{
   margin-left: 16.5px;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 900px) {
   .home{
     height: auto;
     overflow: hidden;

@@ -32,7 +32,7 @@ body[data-page="unescape"] .App {
   max-width: 100%;
 }
 
-.subcount{
+.subcount {
   color: #16c13f !important;
   font-weight: bold;
 }
@@ -218,6 +218,10 @@ h1 {
   transform: rotateZ(-6deg);
 }
 
+.hiddenPhoto{
+  display: none;
+}
+
 .paracol {
   width: 50%;
   display: flex;
@@ -345,7 +349,7 @@ button:disabled {
   color: #e7272a;
 }
 
-.twit{
+.twit {
   z-index: 1;
   font-size: 42px !important;
   padding: 0 15px;
@@ -358,7 +362,7 @@ button:disabled {
   transition: 0.5s ease-in-out;
 }
 
-.twit:hover{
+.twit:hover {
   transform: scale(1.1);
   transition: 0.5s ease-in-out;
 }
@@ -485,21 +489,21 @@ button:disabled {
   background: #131313;
 }
 
-.puzzIcon{
+.puzzIcon {
   display: flex;
   /* flex-direction: column; */
   align-items: center;
   cursor: pointer;
 }
 
-.puzzIcon svg{
+.puzzIcon svg {
   fill: #fefefe;
   width: 1.5em;
   height: 1.5em;
   animation: rotate 4s linear infinite;
 }
 
-.puzzIcon span{
+.puzzIcon span {
   margin: 0 10px;
 }
 
@@ -508,7 +512,7 @@ button:disabled {
     transform: rotateZ(0deg);
   }
 
-  to{
+  to {
     transform: rotateZ(360deg);
   }
 }
@@ -519,7 +523,7 @@ button:disabled {
   text-align: center;
 }
 
-.puzzleCont a{
+.puzzleCont a {
   color: #1fee57;
   font-weight: bold;
   text-decoration: underline;
@@ -532,11 +536,12 @@ button:disabled {
   animation: fadeIn 1s ease-in-out;
 }
 
-@keyframes fadeIn{
-  from{
+@keyframes fadeIn {
+  from {
     opacity: 0;
   }
-  to{
+
+  to {
     opacity: 1;
   }
 }
@@ -561,17 +566,17 @@ button:disabled {
   transition: 0.3s all ease-in-out;
 }
 
-.correctAns{
+.correctAns {
   border: 2px solid #0d9a45;
   background: rgba(39, 219, 100, 0.1);
 }
 
-.wrongAns{
+.wrongAns {
   border: 2px solid #c20d0d;
   background: rgba(232, 71, 71, 0.1);
 }
 
-.hiddenpuzz button{
+.hiddenpuzz button {
   height: 38px;
   background: #2f7de2;
   color: #fefefe;
@@ -582,7 +587,50 @@ button:disabled {
   place-items: center;
 }
 
-.hiddenpuzz button:hover{
+.hiddenpuzz button:hover {
   background: #2f7de2;
   color: #fefefe;
+}
+
+.textDivider {
+  display: none;
+}
+
+.loaderEmail {
+  margin: 6px 12px 0 0;
+}
+
+.prolayout {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.prolayout::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: linear-gradient(rgba(17, 17, 17, 0) 0%, rgb(17, 17, 17) 100%);
+  background-color: initial;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.probtn{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: #fefefe;
+  cursor: pointer;
+  background: #171717;
+  font-size: 0.8em;
+  z-index: 20;
+  box-shadow: 2px 2px 12px rgba(15, 15, 15, 0.4);
 }

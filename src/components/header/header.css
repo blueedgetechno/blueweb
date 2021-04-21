@@ -63,7 +63,7 @@ a:visited {
   z-index: 10;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 900px) {
   .sideBar {
     display: block;
   }

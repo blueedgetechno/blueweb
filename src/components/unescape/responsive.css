@@ -1,4 +1,4 @@
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 900px) {
   .splashScreen {
     background-image: url(../../assets/img/unescape/splashMini.jpg);
     background-repeat: no-repeat;
@@ -163,5 +163,9 @@
 
   .secretPuzz{
     margin-bottom: 15px;
+  }
+
+  .textDivider{
+    display: block;
   }
 }
