@@ -162,7 +162,7 @@ export default function Unescape() {
   const incHeight = ()=>{
     var pheight = document.getElementById('progress').offsetHeight;
     if(pheight>proHeight){
-      setHeight(Math.min(proHeight+600, pheight));
+      setHeight(Math.min(proHeight+4800, pheight));
     }else{
       setHeight(-1);
     }

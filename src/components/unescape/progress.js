@@ -20,7 +20,17 @@ function Progress() {
 
     axios.get(url).then(res=>{
         if(res && res.data && res.data.status==200){
-          setProg(res.data.result);
+          var arr = res.data.result;
+          
+          arr.sort((a,b)=>{
+            var date1 = new Date(a.date);
+            var date2 = new Date(b.date);
+
+            if(date1>date2) return 1;
+            else return -1;
+          });
+
+          setProg(arr);
         }
       }).catch(err=>{});
 
