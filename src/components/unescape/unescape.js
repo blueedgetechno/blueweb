@@ -4,18 +4,10 @@ import axios from 'axios';
 
 import './unescape.css';
 import './responsive.css';
-// import demoPic from '../../assets/img/unescape/example.jpg';
 
 import Progress from "./progress.js";
 import SplashScreen from '../../assets/img/unescape/splash.jpg';
 import unexp from '../../assets/img/unescape/unexp.png';
-// import unexp from '../../assets/img/unescape/unescape.jpg';
-
-// import pinlock from '../../assets/img/unescape/insights/pinlock.png';
-// import slidepuzz from '../../assets/img/unescape/insights/slidepuzz.png';
-// import suitcasePuzz from '../../assets/img/unescape/insights/suitcasePuzz.png';
-// import devquote from '../../assets/img/unescape/insights/devquote.png';
-// import brokenStar from '../../assets/img/unescape/insights/brokenStar.png';
 
 import Fade from 'react-reveal/Fade';
 import Button from '@material-ui/core/Button';
@@ -280,6 +272,11 @@ export default function Unescape() {
           </svg>
         </div>
         <div className="gamedetails">
+          <div className="videobar">
+            <div className="videocard">
+              <iframe src="https://www.youtube.com/embed/m0EHSoZzHEA" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
           <div className="gamepara">
             <Fade left={true}>
               <div className="imagecont" id="firstCont">

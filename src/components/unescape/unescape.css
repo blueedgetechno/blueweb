@@ -634,3 +634,25 @@ button:disabled {
   z-index: 20;
   box-shadow: 2px 2px 12px rgba(15, 15, 15, 0.4);
 }
+
+.videobar{
+  width: 100%;
+  display: flex;
+  margin-top: 36px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.videocard{
+  width: auto;
+  padding: 16px;
+  max-width: 90%;
+  border-radius: 12px;
+  background: #141414;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.videocard iframe{
+  width: 800px;
+  height: 500px;
+}

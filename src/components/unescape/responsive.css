@@ -168,4 +168,13 @@
   .textDivider{
     display: block;
   }
+
+  .videocard{
+    padding: 8px;
+  }
+
+  .videocard iframe{
+    width: 360px;
+    height: 200px;
+  }
 }
