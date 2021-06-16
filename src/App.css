@@ -53,12 +53,20 @@ body[data-page="home"] .footer{
   display: flex;
   flex-direction: column;
   padding: 15px 13px;
-  width: 550px;
-  height: 360px;
+  min-width: 560px;
+  width: 90%;
+  max-width: 650px;
+  
+  min-height: 360px;
   background: #2a2a32;
   border-radius: 10px;
   box-shadow: 4px 4px 20px 5px rgba(0, 0, 0, 0.3);
   transition: 0.5s all ease-in-out;
+}
+
+.followed{
+  height: 360px;
+  overflow: hidden;
 }
 
 .circles {
