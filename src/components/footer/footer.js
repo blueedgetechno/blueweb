@@ -10,7 +10,7 @@ import {
   faCodepen} from '@fortawesome/free-brands-svg-icons';
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 
-import './footer.css'
+import './footer.css';
 
 
 export default function Footer(){
