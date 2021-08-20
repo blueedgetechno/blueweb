@@ -79,7 +79,7 @@ export default function Unescape() {
     "A profound sense of incompleteness"
   ]
 
-  const msg = "Subscribe%20to%20the%20game%20Unescape%2C%20%40blueedgetechno%20is%20working%20on.%0A%0AA%203d%20game%2C%20full%20of%20secrets%20and%20puzzles%20to%20test%20your%20critical%20thinking%20throughout%20the%20way.%0A%0Asubscribe%20now%3A%20https%3A%2F%2Fblueedge.me%2Funescape"
+  const msg = "Subscribe%20to%20the%20game%20Unescape%2C%20%40blueedgetechno%20is%20working%20on.%0A%0AA%203d%20game%2C%20full%20of%20secrets%20and%20puzzles%20to%20test%20your%20critical%20thinking%20throughout%20the%20way.%0A%0Asubscribe%20now%3A%20https%3A%2F%2Fblueedge.me%2Funescape%0Ahttps://www.youtube.com/watch?v=m0EHSoZzHEA"
 
   const checkEmail = (ele)=>{
     setLegal(ele.target.checkValidity() && ele.target.value!="");
