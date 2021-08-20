@@ -34,6 +34,8 @@ export default function Unescape() {
   const [subcount, setSubcount] = useState(0);
   const [proHeight, setHeight] = useState(600);
 
+  const [subm, setSubm] = useState(!!localStorage.getItem('showPuzz'));
+
   React.useEffect(()=>{
     var url = `${blueapi}count`
 
@@ -44,7 +46,7 @@ export default function Unescape() {
         }
       }).catch(err=>{
       })
-  })
+  }, [emailsent]);
 
   const [showPuzz, setShowPuzz] = useState(()=>{
     if(localStorage.getItem('showPuzz')=="true"){
@@ -109,6 +111,7 @@ export default function Unescape() {
               },2000);
             }
             localStorage.setItem('showPuzz', "true");
+            localStorage.setItem('email', body.email);
           }else{
             if(res.data.message.includes("duplicate key")){
               setMessage("Email already exist");
@@ -236,6 +239,16 @@ export default function Unescape() {
                       </a>
                     </div>
                     :null}
+
+                  {subm && !(emailsent & !isError)?(
+                    <a className="extratweet" href={false?
+                      "https://twitter.com/intent/tweet?original_referer=https://blueedge.me&text="
+                      + msg: "https://bit.ly/39RMoAX"}
+                    target="_blank"
+                    title="spread the word">
+                      <TwitterIcon className="twit"/>
+                    </a>
+                  ):null}
 
                   {isError?
                     <div className="checkCont crossCont">

@@ -314,6 +314,7 @@ body[data-page="home"] .footer{
     justify-content: unset;
     padding-top: 0;
     align-items: center;
+    vertical-align: middle;
   }
 
   .profileImage{
@@ -327,10 +328,10 @@ body[data-page="home"] .footer{
 
   .introCards{
     /* display: none; */
-    width: 96%;
+    width: 90%;
     height: 300px;
     margin: 0;
-    transform-origin:top left;
+    transform-origin: left center;
     transform: scale(0.65);
     align-self: flex-end;
   }

@@ -30,6 +30,8 @@ body[data-page="unescape"] .App {
 
 .splashScreen img {
   max-width: 100%;
+  position: absolute;
+  right: 0;
 }
 
 .subcount {
@@ -256,6 +258,7 @@ h1 {
 }
 
 .subscribe {
+  position: relative;
   width: 500px;
   height: 60px;
   background: #090909;
@@ -265,7 +268,7 @@ h1 {
   align-items: center;
   padding: 5px;
   border: 2px solid rgba(66, 66, 66, 0.7);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .subinp {
@@ -655,4 +658,10 @@ button:disabled {
 .videocard iframe{
   width: 800px;
   height: 500px;
+}
+
+.extratweet{
+  position: absolute;
+  right: -64px;
+  filter: drop-shadow(2px 2px 12px rgba(0, 117, 255, 0.25));
 }

@@ -177,4 +177,8 @@
     width: 360px;
     height: 200px;
   }
+
+  .extratweet{
+    display: none;
+  }
 }
