@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
-import './header.css'
+import './header.css';
 
 import DehazeIcon from '@material-ui/icons/Dehaze';
-import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faGamepad} from "@fortawesome/free-solid-svg-icons";
 
 import {Link} from 'react-router-dom';
 
@@ -32,7 +35,7 @@ export default function Header(){
               <Link to="/">Home</Link>
             </span>
             <span>
-              <Link to="/unescape">Unescape 🎮</Link>
+              <Link to="/unescape">Unescape <FontAwesomeIcon icon={faGamepad} /></Link>
             </span>
             <span>
               <a href="https://github.com/blueedgetechno" target="_blank" rel="noreferrer">Github</a>
