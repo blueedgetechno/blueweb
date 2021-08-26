@@ -35,9 +35,6 @@ export default function Unescape() {
   const [proHeight, setHeight] = useState(600);
 
   const [subm, setSubm] = useState(!!localStorage.getItem('showPuzz'));
-  console.log(process.env.REACT_APP_AUTH_KEY );
-  console.log(process.env.REACT_APP_SECRET_PUZZ );
-  console.log(process.env.REACT_APP_BLUEAPI2);
 
   React.useEffect(()=>{
     var url = `${blueapi}count`
