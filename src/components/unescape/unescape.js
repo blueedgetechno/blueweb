@@ -17,7 +17,7 @@ import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
 import ExtensionIcon from '@material-ui/icons/Extension';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
-const blueapi = "https://blueapi.netlify.app/.netlify/functions/index/api/"
+var blueapi = "https://blueapi.herokuapp.com/api/"
 if(process.env.REACT_APP_BLUEAPI!=null){
   blueapi = process.env.REACT_APP_BLUEAPI;
 }
