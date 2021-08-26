@@ -240,7 +240,7 @@ export default function Unescape() {
                     </div>
                     :null}
 
-                  {subm && !(emailsent & !isError)?(
+                  {!(emailsent & !isError)?(
                     <a className="extratweet" href={false?
                       "https://twitter.com/intent/tweet?original_referer=https://blueedge.me&text="
                       + msg: "https://bit.ly/37YHKjX"}
