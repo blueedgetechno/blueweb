@@ -19,7 +19,7 @@ if(process.env.NODE_ENV=="development"){
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className="App">
         <Header/>
         <Switch>
