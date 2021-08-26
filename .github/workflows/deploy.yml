@@ -24,6 +24,10 @@ jobs:
 
     - name: Build project
       run: CI=false npm run build
+      env:
+        REACT_APP_AUTH_KEY: ${{ secrets.REACT_APP_AUTH_KEY }}
+        REACT_APP_SECRET_PUZZ: ${{ secrets.REACT_APP_SECRET_PUZZ }}
+        REACT_APP_BLUEAPI: ${{ secrets.REACT_APP_BLUEAPI }}
 
     - name: Upload production-ready build files
       uses: actions/upload-artifact@v2

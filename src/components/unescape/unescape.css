@@ -114,6 +114,7 @@ body[data-page="unescape"] .App {
   overflow: hidden;
   max-width: 100%;
   margin-top: -150px;
+  pointer-events: none;
   filter: drop-shadow(0 -3px 0px rgba(74, 74, 74, 0.75));
 }
 
