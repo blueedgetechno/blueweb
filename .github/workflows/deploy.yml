@@ -27,7 +27,7 @@ jobs:
       env:
         REACT_APP_AUTH_KEY: ${{ secrets.REACT_APP_AUTH_KEY }}
         REACT_APP_SECRET_PUZZ: ${{ secrets.REACT_APP_SECRET_PUZZ }}
-        REACT_APP_BLUEAPI: "https://blueapi.herokuapp.com/api/"
+        REACT_APP_BLUEAPI: "https://bluewebapi.netlify.app/.netlify/functions/index/api/"
 
     - name: Upload production-ready build files
       uses: actions/upload-artifact@v2
