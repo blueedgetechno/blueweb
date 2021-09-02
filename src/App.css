@@ -56,7 +56,7 @@ body[data-page="home"] .footer{
   min-width: 560px;
   width: 90%;
   max-width: 650px;
-  
+
   min-height: 360px;
   background: #2a2a32;
   border-radius: 10px;
@@ -177,11 +177,11 @@ body[data-page="home"] .footer{
 
 @keyframes twiddle {
   from{
-    transform: rotateZ(-5deg);
+    transform: rotateZ(-2deg);
   }
 
   to{
-    transform: rotateZ(5deg);
+    transform: rotateZ(2deg);
   }
 }
 
