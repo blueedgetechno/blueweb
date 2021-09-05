@@ -55,6 +55,10 @@ export const LangCard = (props)=>{
 }
 
 export const SocialCard = (props)=>{
+  const stoprop = (e)=>{
+    e.stopPropagation();
+  }
+
   return (
     <div className={"introCard"+props.curState}>
       <div className="circles">
@@ -64,16 +68,60 @@ export const SocialCard = (props)=>{
       </div>
       <div className="procode">
         <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}><span className="cm-keyword">const</span> <span className="cm-def">socialLinks</span> <span className="cm-operator">=</span> {"{"}</span></pre>
-        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">github</span>: <span className="cm-string">"github.com/blueedgetechno"</span>,</span></pre>
-        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">twitter</span>: <span className="cm-string">"twitter.com/blueedgetechno"</span>,</span></pre>
-        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">codeforces</span>: <span className="cm-string">"codeforces.com/profile/blueedge"</span>,</span></pre>
-        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">gmail</span>: <span className="cm-string">"blueedgetechno@gmail.com"</span>,</span></pre>
-        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">spotify</span>: <span className="cm-string">"../user/62axxw0etmycj09el078cock0"</span>,</span></pre>
-        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">behance</span>: <span className="cm-string">"behance.net/blueedgetechno"</span>,</span></pre>
-        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">codepen</span>: <span className="cm-string">"codepen.io/blueedgetechno"</span>,</span></pre>
-        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">dev</span>: <span className="cm-string">"dev.to/blueedgetechno"</span></span>,</pre>
-        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">stackoverflow</span>: <span className="cm-string">"../users/12115721/blue-edge"</span>,</span></pre>
-        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">leetcode</span>: <span className="cm-string">"leetcode.com/blueedgetechno/"</span></span></pre>
+        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">github</span>: <span className="cm-string">
+          <a className="sociolink" onClick={stoprop} href="https://github.com/blueedgetechno"
+            target="_blank">"github.com/blueedgetechno"</a>
+        </span>,</span></pre>
+        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">twitter</span>: <span className="cm-string">
+          <a className="sociolink" onClick={stoprop} href="https://twitter.com/blueedgetechno"
+            target="_blank">"twitter.com/blueedgetechno"
+          </a>
+          </span>,</span></pre>
+        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">codeforces</span>: <span className="cm-string">
+          <a className="sociolink" onClick={stoprop} href="https://codeforces.com/profile/blueedge"
+            target="_blank">"codeforces.com/profile/blueedge"
+          </a>
+        </span>,</span></pre>
+        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">gmail</span>: <span className="cm-string">
+          <a className="sociolink" onClick={stoprop} href="mailto:blueedgetechno@gmail.com"
+            target="_blank">"blueedgetechno@gmail.com"
+          </a>
+        </span>,</span></pre>
+        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">spotify</span>: <span className="cm-string">
+          <a className="sociolink" onClick={stoprop} href="https://open.spotify.com/user/62axxw0etmycj09el078cock0"
+            target="_blank">"../user/62axxw0etmycj09el078cock0"
+          </a>
+        </span>,</span></pre>
+        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">behance</span>: <span className="cm-string">
+          <a className="sociolink" onClick={stoprop} href="https://behance.net/blueedgetechno"
+            target="_blank">"behance.net/blueedgetechno"
+          </a>
+        </span>,</span></pre>
+        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">codepen</span>: <span className="cm-string">
+          <a className="sociolink" onClick={stoprop} href="https://codepen.io/blueedgetechno"
+            target="_blank">"codepen.io/blueedgetechno"
+          </a>
+        </span>,</span></pre>
+        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">dev</span>: <span className="cm-string">
+          <a className="sociolink" onClick={stoprop} href="https://dev.to/blueedgetechno"
+            target="_blank">"dev.to/blueedgetechno"
+          </a>
+        </span></span>,</pre>
+        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">stackoverflow</span>: <span className="cm-string">
+          <a className="sociolink" onClick={stoprop} href="https://stackoverflow.com/users/12115721/blue-edge"
+            target="_blank">"../users/12115721/blue-edge"
+          </a>
+        </span>,</span></pre>
+        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">discord</span>: <span className="cm-string">
+          <a className="sociolink" onClick={stoprop} href="https://discord.com/app"
+            target="_blank">"Blue Edge#1017"
+          </a>
+        </span></span></pre>
+        <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">youtube</span>: <span className="cm-string">
+          <a className="sociolink" onClick={stoprop} href="https://www.youtube.com/channel/UCozhS3MxzCGrPTffh0mqArw"
+            target="_blank">"../channel/UCozhS3MxzCGrPTffh0mqArw"
+          </a>
+        </span></span></pre>
         <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}>{"}"}</span></pre>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 // import './rough.css';
 
@@ -35,10 +35,10 @@ import Projects from './components/front/projects.js'
 
 function App() {
 
-  const [card1, setCard1] = React.useState(1)
-  const [card2, setCard2] = React.useState(-2)
-  const [card3, setCard3] = React.useState(-1)
-  const [card4, setCard4] = React.useState(0)
+  const [card1, setCard1] = useState(1)
+  const [card2, setCard2] = useState(-2)
+  const [card3, setCard3] = useState(-1)
+  const [card4, setCard4] = useState(0)
   // const [card5, setCard5] = React.useState(0)
 
   const [isMobo, setMobo] =  React.useState(()=>{

@@ -59,3 +59,7 @@ code {
 .App {
   min-height: 100vh;
 }
+
+.sociolink:hover{
+  color: #58e4c8;
+}
