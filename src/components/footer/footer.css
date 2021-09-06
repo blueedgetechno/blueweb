@@ -3,7 +3,6 @@
   background: #1b1b1b;
   position: absolute;
   width: 100%;
-  bottom: -60px;
 }
 
 .footCont {
@@ -30,6 +29,7 @@
 }
 
 @media only screen and (max-width: 900px) {
+
   .footCont {
     flex-direction: column-reverse;
   }

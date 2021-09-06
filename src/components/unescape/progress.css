@@ -68,7 +68,8 @@ body{
   opacity: 0;
 }
 
-.proContent:hover::before{
+.proContent:hover::before,
+.flowrow:nth-child(1) .flowbox:nth-child(1) .proContent::before{
   width: 110%;
   height: 110%;
   opacity: 1;
@@ -113,7 +114,8 @@ body{
   transition: all 200ms ease-in-out;
 }
 
-.proContent:hover .proDetail {
+.proContent:hover .proDetail,
+.flowrow:nth-child(1) .flowbox:nth-child(1) .proDetail {
   transform: scale(1);
 }
 

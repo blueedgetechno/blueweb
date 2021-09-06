@@ -86,7 +86,7 @@
     min-height: 800px;
   }
 
-  .gamepara:nth-child(even) {
+  .gamepara:nth-child(3n) {
     flex-direction: column-reverse;
   }
 
@@ -108,7 +108,7 @@
   }
 
   .paratitle {
-    font-size: 36px;
+    font-size: 28px;
     margin-bottom: 30px;
   }
 
