@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: blueedge.me
+Token: d30974027a9649ba8ef1c34678f4d0a3a9b7c1f1001883b23fbdff4f405665d1
