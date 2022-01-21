@@ -6,6 +6,10 @@
     min-height: 750px;
   }
 
+  body[data-page="unescape"] .grecaptcha-badge{
+    display: none !important;
+  }
+
   .splashScreen img {
     display: none;
   }

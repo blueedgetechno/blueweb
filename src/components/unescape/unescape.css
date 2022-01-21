@@ -19,6 +19,13 @@ body[data-page="unescape"] .App {
   background: var(--background);
 }
 
+body[data-page="unescape"] .grecaptcha-badge{
+  position: absolute !important;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5) !important;
+  filter: hue-rotate(180deg) invert(0.96);
+  transition: all 200ms ease-in-out;
+}
+
 .splashScreen {
   position: relative;
   width: 100%;

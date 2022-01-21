@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 // import './rough.css';
 
@@ -52,35 +52,17 @@ function App() {
   document.body.dataset.page = "home"
 
   const handleOnClick = ()=>{
-    if(card1==2){
-      setCard1(-1);
-    }else{
-      setCard1(card1+1);
-    }
+    if(card1==2) setCard1(-1);
+    else setCard1(card1+1);
 
-    if(card2==2){
-      setCard2(-1);
-    }else{
-      setCard2(card2+1);
-    }
+    if(card2==2) setCard2(-1);
+    else setCard2(card2+1);
 
-    if(card3==2){
-      setCard3(-1);
-    }else{
-      setCard3(card3+1);
-    }
+    if(card3==2) setCard3(-1);
+    else setCard3(card3+1);
 
-    if(card4==2){
-      setCard4(-1);
-    }else{
-      setCard4(card4+1);
-    }
-
-    // if(card5==2){
-    //   setCard5(-2);
-    // }else{
-    //   setCard5(card5+1);
-    // }
+    if(card4==2) setCard4(-1);
+    else setCard4(card4+1);
   }
 
   const states = {
@@ -101,6 +83,9 @@ function App() {
     return;
     window.open(links[altValue], "_blank");
   }
+
+  useEffect(()=>{
+  })
 
   return (
     <div className="home">

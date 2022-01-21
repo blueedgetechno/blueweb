@@ -12,6 +12,10 @@ body[data-page="home"] .footer{
   background: #1b1b1b;
 }
 
+body[data-page="home"] .grecaptcha-badge{
+  opacity: 0;
+}
+
 .home {
   width: 100%;
   max-width: 100vw;

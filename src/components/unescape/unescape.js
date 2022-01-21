@@ -17,7 +17,7 @@ import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
 import ExtensionIcon from '@material-ui/icons/Extension';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
-var blueapi = "https://blueapi.herokuapp.com/api/"
+var blueapi = "https://bluewebapi.netlify.app/.netlify/functions/index/api/"
 if(process.env.REACT_APP_BLUEAPI!=null){
   blueapi = process.env.REACT_APP_BLUEAPI;
 }
@@ -38,7 +38,6 @@ export default function Unescape() {
 
   React.useEffect(()=>{
     var url = `${blueapi}count`
-
     axios.get(url)
       .then(res=>{
         if(res && res.data && res.data.status==200){
@@ -86,8 +85,9 @@ export default function Unescape() {
     setEmail(ele.target.value);
   }
 
-  const sendRequest = ()=>{
+  const sendRequest = (e)=>{
     if(isLegal){
+      e.preventDefault()
       console.log(email);
       setWait(true);
 
@@ -95,40 +95,36 @@ export default function Unescape() {
 
       const body = {
         email: email,
-        authkey: process.env.REACT_APP_AUTH_KEY
+        token: null
       }
 
-      url+=`?email=${body.email}&authkey=${body.authkey}`
+      window.onCaptchaClick(token=>{
+        url+=`?email=${body.email}&token=${token}`
 
-      axios.post(url, body).then(res=>{
-          if(res.data.status==200){
+        axios.post(url, body).then(res => {
+          if (res.data.status == 200) {
             setWait(false);
             setSent(true);
             setShowPuzz(true);
-            if(localStorage.getItem('showPuzz')!="true"){
-              setTimeout(()=>{
+            if (localStorage.getItem('showPuzz') != "true") {
+              setTimeout(() => {
                 window.location = "/unescape#puzzContainer";
-              },2000);
+              }, 2000);
             }
             localStorage.setItem('showPuzz', "true");
             localStorage.setItem('email', body.email);
-          }else{
-            if(res.data.message.includes("duplicate key")){
+          } else {
+            if (res.data.message.includes("duplicate key")) {
               setMessage("Email already exist");
             }
-            // console.log(res.data);
             setError(true);
             setWait(false);
           }
-          // console.log("THEN");
-          // console.log(res.data);
-        }).catch(err=>{
+        }).catch(err => {
           setError(true);
           setWait(false);
-          // console.log("CATCH");
-          // console.log(err.message);
-          // console.log(err);
         })
+      })
     }
   }
 
