@@ -26,7 +26,7 @@ jobs:
       run: CI=false npm run build
       env:
         REACT_APP_SECRET_PUZZ: ${{ secrets.REACT_APP_SECRET_PUZZ }}
-        REACT_APP_BLUEAPI: https://api.blueedge.me/api/
+        REACT_APP_BLUEAPI: https://blueapi.vercel.app/api/
 
     - name: Upload production-ready build files
       uses: actions/upload-artifact@v2
