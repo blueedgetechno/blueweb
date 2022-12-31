@@ -38,7 +38,7 @@ export default function Header(){
               <Link to="/unescape">Unescape <FontAwesomeIcon icon={faGamepad} /></Link>
             </span>
             <span>
-              <a href="https://github.com/blueedgetechno" target="_blank" rel="noreferrer">Github</a>
+              <a href="https://github.com/blueedgetechno" target="_blank" rel="noreferrer">GitHub</a>
             </span>
             <span><a href="mailto:blueedgetechno@gmail.com" target="_blank" rel="noreferrer">Contact</a></span>
           </div>
