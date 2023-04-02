@@ -91,7 +91,7 @@ export default function Unescape() {
       console.log(email);
       setWait(true);
 
-      var url = blueapi;
+      var url = blueapi.replace(/\/+$/, '');
 
       const body = {
         email: email,
