@@ -14,6 +14,7 @@ body[data-page="home"] .footer{
 
 body[data-page="home"] .grecaptcha-badge{
   opacity: 0;
+  pointer-events: none;
 }
 
 .home {
