@@ -63,7 +63,7 @@ function Sponsors() {
                 <h4>{sp.bio}</h4>
                 <div className="sp-links">
                   {sp.location && (
-                    <a href={sp.blog} target="_blank">
+                    <a href={"https://www.google.com/maps/place/" + sp.location} target="_blank">
                       <FontAwesomeIcon icon={faLocationDot} />
                       <span>{sp.location}</span>
                     </a>
