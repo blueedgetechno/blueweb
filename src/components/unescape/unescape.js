@@ -1,73 +1,75 @@
-import React, {useState} from 'react';
-import Loader from "react-loader-spinner";
-import axios from 'axios';
+import { useState, useEffect } from "react"
+import { TailSpin } from "react-loader-spinner"
+import axios from "axios"
 
-import './unescape.css';
-import './responsive.css';
+import "./unescape.css"
+import "./responsive.css"
 
-import Progress from "./progress.js";
-import SplashScreen from '../../assets/img/unescape/splash.jpg';
-import unexp from '../../assets/img/unescape/unexp.png';
+import Progress from "./progress.js"
+import SplashScreen from "../../assets/img/unescape/splash.jpg"
+import unexp from "../../assets/img/unescape/unexp.png"
 
-import Fade from 'react-reveal/Fade';
-import Button from '@material-ui/core/Button';
+import Fade from "react-reveal/Fade"
+import Button from "@mui/material/Button"
 
-import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
-import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
-import ExtensionIcon from '@material-ui/icons/Extension';
-import TwitterIcon from '@material-ui/icons/Twitter';
+import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded"
+import CancelRoundedIcon from "@mui/icons-material/CancelRounded"
+import ExtensionIcon from "@mui/icons-material/Extension"
+import TwitterIcon from "@mui/icons-material/Twitter"
 
 var blueapi = "https://bluewebapi.netlify.app/.netlify/functions/index/api/"
-if(process.env.REACT_APP_BLUEAPI!=null){
-  blueapi = process.env.REACT_APP_BLUEAPI;
+if (process.env.REACT_APP_BLUEAPI != null) {
+  blueapi = process.env.REACT_APP_BLUEAPI
 }
 
 export default function Unescape() {
+  const [email, setEmail] = useState("")
+  const [isLegal, setLegal] = useState(false)
+  const [emailsent, setSent] = useState(false)
+  const [isWait, setWait] = useState(false)
+  const [isError, setError] = useState(false)
+  const [message, setMessage] = useState("An error occured...")
+  const [picture, setPicture] = useState(0)
+  const [subcount, setSubcount] = useState(0)
+  const [proHeight, setHeight] = useState(600)
 
-  const [email, setEmail] = useState("");
-  const [isLegal, setLegal] = useState(false);
-  const [emailsent, setSent] = useState(false);
-  const [isWait, setWait] = useState(false);
-  const [isError, setError] = useState(false);
-  const [message, setMessage] = useState("An error occured...");
-  const [picture, setPicture] = useState(0);
-  const [subcount, setSubcount] = useState(0);
-  const [proHeight, setHeight] = useState(600);
-
-  const [subm, setSubm] = useState(!!localStorage.getItem('showPuzz'));
-
-  React.useEffect(()=>{
+  useEffect(() => {
     var url = `${blueapi}count`
-    axios.get(url)
-      .then(res=>{
-        if(res && res.data && res.data.status==200){
-          setSubcount(res.data.result);
-        }
-      }).catch(err=>{
-      })
-  }, [emailsent]);
-
-  const [showPuzz, setShowPuzz] = useState(()=>{
-    if(localStorage.getItem('showPuzz')=="true"){
-      return true;
-    }else{
-      console.log("False, I guess why");
-      return false;
+    try {
+      axios
+        .get(url)
+        .then((res) => {
+          if (res && res.data && res.data.status == 200) {
+            setSubcount(res.data.result)
+          }
+        })
+        .catch(console.log)
+    } catch (err) {
+      console.log(err)
     }
-  });
+  }, [emailsent])
 
-  const [isHidden, setHidden] = useState(true);
-  const [secpuz, setSecpuz] = useState("");
-  const [inputClass, setInputClass] = useState("");
-  const [prompt, setPrompt] = useState("type here...");
-  const [isCorrect, setisCorrect] = useState(false);
+  const [showPuzz, setShowPuzz] = useState(() => {
+    if (localStorage.getItem("showPuzz") == "true") {
+      return true
+    } else {
+      console.log("False, I guess why")
+      return false
+    }
+  })
+
+  const [isHidden, setHidden] = useState(true)
+  const [secpuz, setSecpuz] = useState("")
+  const [inputClass, setInputClass] = useState("")
+  const [prompt, setPrompt] = useState("type here...")
+  const [isCorrect, setisCorrect] = useState(false)
 
   const insights = [
     "img/pinlock.png",
     "img/slidepuzz.png",
     "img/suitcasePuzz.png",
     "img/devquote.png",
-    "img/brokenStar.png"
+    "img/brokenStar.png",
   ]
 
   const words = [
@@ -75,97 +77,102 @@ export default function Unescape() {
     "Sometimes symmetry act as a helping hand",
     "Abstraction is the virtue of this game",
     "Small details that can create big pictures",
-    "A profound sense of incompleteness"
+    "A profound sense of incompleteness",
   ]
 
-  const msg = "Subscribe%20to%20the%20game%20Unescape%2C%20%40blueedgetechno%20is%20working%20on.%0A%0AA%203d%20game%2C%20full%20of%20secrets%20and%20puzzles%20to%20test%20your%20critical%20thinking%20throughout%20the%20way.%0A%0Asubscribe%20now%3A%20https%3A%2F%2Fblueedge.me%2Funescape%0A%0Ahttps://www.youtube.com/watch?v=m0EHSoZzHEA"
+  const msg =
+    "Subscribe%20to%20the%20game%20Unescape%2C%20%40blueedgetechno%20is%20working%20on.%0A%0AA%203d%20game%2C%20full%20of%20secrets%20and%20puzzles%20to%20test%20your%20critical%20thinking%20throughout%20the%20way.%0A%0Asubscribe%20now%3A%20https%3A%2F%2Fblueedge.me%2Funescape%0A%0Ahttps://www.youtube.com/watch?v=m0EHSoZzHEA"
 
-  const checkEmail = (ele)=>{
-    setLegal(ele.target.checkValidity() && ele.target.value!="");
-    setEmail(ele.target.value);
+  const checkEmail = (ele) => {
+    setLegal(ele.target.checkValidity() && ele.target.value != "")
+    setEmail(ele.target.value)
   }
 
-  const sendRequest = (e)=>{
-    if(isLegal){
+  const sendRequest = (e) => {
+    if (isLegal) {
       e.preventDefault()
-      console.log(email);
-      setWait(true);
+      console.log(email)
+      setWait(true)
 
-      var url = blueapi.replace(/\/+$/, '');
+      var url = blueapi.replace(/\/+$/, "")
 
       const body = {
         email: email,
-        token: null
+        token: null,
       }
 
-      window.onCaptchaClick(token=>{
-        url+=`?email=${body.email}&token=${token}`
+      window.onCaptchaClick((token) => {
+        url += `?email=${body.email}&token=${token}`
 
-        axios.post(url, body).then(res => {
-          if (res.data.status == 200) {
-            setWait(false);
-            setSent(true);
-            setShowPuzz(true);
-            if (localStorage.getItem('showPuzz') != "true") {
-              setTimeout(() => {
-                window.location = "/unescape#puzzContainer";
-              }, 2000);
+        axios
+          .post(url, body)
+          .then((res) => {
+            if (res.data.status == 200) {
+              setWait(false)
+              setSent(true)
+              setShowPuzz(true)
+              if (localStorage.getItem("showPuzz") != "true") {
+                setTimeout(() => {
+                  window.location = "/unescape#puzzContainer"
+                }, 2000)
+              }
+              localStorage.setItem("showPuzz", "true")
+              localStorage.setItem("email", body.email)
+            } else {
+              if (res.data.message.includes("duplicate key")) {
+                setMessage("Email already exist")
+              }
+              setError(true)
+              setWait(false)
             }
-            localStorage.setItem('showPuzz', "true");
-            localStorage.setItem('email', body.email);
-          } else {
-            if (res.data.message.includes("duplicate key")) {
-              setMessage("Email already exist");
-            }
-            setError(true);
-            setWait(false);
-          }
-        }).catch(err => {
-          setError(true);
-          setWait(false);
-        })
+          })
+          .catch((err) => {
+            setError(true)
+            setWait(false)
+          })
       })
     }
   }
 
-  const placeSec = (ele)=>{
-    if(!isCorrect){
-      setSecpuz(ele.target.value);
-      setInputClass("");
+  const placeSec = (ele) => {
+    if (!isCorrect) {
+      setSecpuz(ele.target.value)
+      setInputClass("")
       setPrompt("")
     }
   }
 
-  const checkSec = ()=>{
-    if(
-      secpuz.length<=10 &&
+  const checkSec = () => {
+    if (
+      secpuz.length <= 10 &&
       !isCorrect &&
-      secpuz.toLowerCase()==process.env.REACT_APP_SECRET_PUZZ){
-      setisCorrect(true);
-      setInputClass("correctAns");
-    }else if (!isCorrect) {
-      setSecpuz("");
-      setPrompt("Wrong password");
-      setInputClass("wrongAns");
+      secpuz.toLowerCase() == process.env.REACT_APP_SECRET_PUZZ
+    ) {
+      setisCorrect(true)
+      setInputClass("correctAns")
+    } else if (!isCorrect) {
+      setSecpuz("")
+      setPrompt("Wrong password")
+      setInputClass("wrongAns")
     }
   }
 
-  const incHeight = ()=>{
-    var pheight = document.getElementById('progress').offsetHeight;
-    if(pheight>proHeight){
-      setHeight(Math.min(proHeight+4800, pheight));
-    }else{
-      setHeight(-1);
+  const incHeight = () => {
+    var pheight = document.getElementById("progress").offsetHeight
+    if (pheight > proHeight) {
+      setHeight(Math.min(proHeight + 4800, pheight))
+    } else {
+      setHeight(-1)
     }
   }
 
-  document.body.dataset.page = "unescape";
+  document.body.dataset.page = "unescape"
 
   return (
     <div className="unescapeApp">
       <div className="unescapeCont">
         <div className="splashScreen">
-          <img src={SplashScreen} alt=""/>
+          <img src={SplashScreen} alt="" />
           <div className="splashtext">
             <div className="description">
               <div className="title">
@@ -180,14 +187,15 @@ export default function Unescape() {
               </div>
               <div className="slogan">A picture of possibilities</div>
               <div className="gamedesc">
-                <span>A house full of rooms with hidden secrets
-                  and competitive puzzles which will lead you to the truth of your
-                  very existence
+                <span>
+                  A house full of rooms with hidden secrets and competitive
+                  puzzles which will lead you to the truth of your very
+                  existence
                 </span>
               </div>
               <div className="subscribeCont">
                 <div className="subscribe">
-                  {emailsent==false & !isError?
+                  {(emailsent == false) & !isError ? (
                     <input
                       id="emailinput"
                       className="subinp"
@@ -197,93 +205,115 @@ export default function Unescape() {
                       placeholder="your email"
                       readOnly={isWait}
                     />
-                    :null}
+                  ) : null}
 
-                  {emailsent==false & isWait==false & !isError?
+                  {(emailsent == false) & (isWait == false) & !isError ? (
                     <button
                       className="subtn"
                       disabled={!isLegal}
-                      onClick={sendRequest}
-                      >subscribe</button>
-                    :null}
+                      onClick={sendRequest}>
+                      subscribe
+                    </button>
+                  ) : null}
 
-                  {emailsent==false & isWait==true & !isError?
-                    <Loader
-                      className="loaderEmail"
-                      type="TailSpin"
+                  {(emailsent == false) & (isWait == true) & !isError ? (
+                    <TailSpin
+                      wrapperClass="loaderEmail"
                       color="#1da1f2"
                       height={40}
                       width={40}
-                      />
-                    :null}
+                    />
+                  ) : null}
 
-                  {emailsent & !isError?
+                  {emailsent & !isError ? (
                     <div className="checkCont">
-                      <CheckCircleRoundedIcon className="checkmark"/>
+                      <CheckCircleRoundedIcon className="checkmark" />
                     </div>
-                    :null}
+                  ) : null}
 
-                  {emailsent & !isError?
+                  {emailsent & !isError ? (
                     <div className="thankscontainer">
                       <span className="thanks">Thanks for subscribing</span>
-                      <a href={false?
-                        "https://twitter.com/intent/tweet?original_referer=https://blueedge.me&text="
-                        + msg: "https://bit.ly/37YHKjX"}
-                      target="_blank"
-                      title="spread the word">
-                        <TwitterIcon className="twit"/>
+                      <a
+                        href={
+                          false
+                            ? "https://twitter.com/intent/tweet?original_referer=https://blueedge.me&text=" +
+                              msg
+                            : "https://bit.ly/37YHKjX"
+                        }
+                        target="_blank"
+                        title="spread the word">
+                        <TwitterIcon className="twit" />
                       </a>
                     </div>
-                    :null}
+                  ) : null}
 
-                  {!(emailsent & !isError)?(
-                    <a className="extratweet" href={false?
-                      "https://twitter.com/intent/tweet?original_referer=https://blueedge.me&text="
-                      + msg: "https://bit.ly/37YHKjX"}
-                    target="_blank"
-                    title="spread the word">
-                      <TwitterIcon className="twit"/>
+                  {!(emailsent & !isError) ? (
+                    <a
+                      className="extratweet"
+                      href={
+                        false
+                          ? "https://twitter.com/intent/tweet?original_referer=https://blueedge.me&text=" +
+                            msg
+                          : "https://bit.ly/37YHKjX"
+                      }
+                      target="_blank"
+                      title="spread the word">
+                      <TwitterIcon className="twit" />
                     </a>
-                  ):null}
+                  ) : null}
 
-                  {isError?
+                  {isError ? (
                     <div className="checkCont crossCont">
-                      <CancelRoundedIcon className="cross"/>
+                      <CancelRoundedIcon className="cross" />
                     </div>
-                    :null}
+                  ) : null}
 
-                  {isError?
+                  {isError ? (
                     <div className="thankscontainer">
                       <span className="errortext">
                         {message} <a href="/unescape">(click to retry)</a>
                       </span>
                     </div>
-                    :null}
+                  ) : null}
                 </div>
               </div>
               <div className="subtxt">
                 <span>
                   Subscribe to the waiting list to be among the first to know
                   when the game is available!
-                  {subcount!=" "?(
-                    <span><div className="textDivider"></div><span className="subcount">{" "}{subcount} peoples</span> have subscribed so far.</span>
-                  ):null}
+                  {subcount != " " ? (
+                    <span>
+                      <div className="textDivider"></div>
+                      <span className="subcount"> {subcount} peoples</span> have
+                      subscribed so far.
+                    </span>
+                  ) : null}
                 </span>
               </div>
             </div>
           </div>
         </div>
         <div className="divider">
-          <svg viewBox="0 0 500 150" preserveAspectRatio="none" style={{height: '100%', width: '100%'}}>
+          <svg
+            viewBox="0 0 500 150"
+            preserveAspectRatio="none"
+            style={{ height: "100%", width: "100%" }}>
             <path
               d="M-0.90,128.57 C259.81,130.55 421.78,133.51 500.78,9.19 L500.00,150.00 L0.00,150.00 Z"
-              style={{stroke: 'none', fill: '#111111'}} />
+              style={{ stroke: "none", fill: "#111111" }}
+            />
           </svg>
         </div>
         <div className="gamedetails">
           <div className="videobar">
             <div className="videocard">
-              <iframe src="https://www.youtube.com/embed/m0EHSoZzHEA" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe
+                src="https://www.youtube.com/embed/m0EHSoZzHEA"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
             </div>
           </div>
           <div className="gamepara">
@@ -291,19 +321,24 @@ export default function Unescape() {
               <div className="imagecont" id="firstCont">
                 <div className="paratitle">The realm of reality</div>
                 <div className="imageframe">
-                  <img className="paraimage" src={unexp} alt="unexp"/>
+                  <img className="paraimage" src={unexp} alt="unexp" />
                 </div>
-                <div className="levelintro">- A still from the ongoing game unescape</div>
+                <div className="levelintro">
+                  - A still from the ongoing game unescape
+                </div>
               </div>
             </Fade>
             <Fade right={true}>
               <div className="paracol">
                 <div className="paratitle">The realm of reality</div>
                 <div className="paratext">
-                  A <mark>3d game</mark>, full of <mark>secrets and puzzles</mark> to test your
+                  A <mark>3d game</mark>, full of{" "}
+                  <mark>secrets and puzzles</mark> to test your
                   <mark> critical thinking</mark> throughout the way.
-                  <br/><br/>
-                  In this immersive <mark>point & click </mark>puzzler, you will face
+                  <br />
+                  <br />
+                  In this immersive <mark>point & click </mark>puzzler, you will
+                  face
                   <mark> multiples levels</mark> of growing difficulty with
                   <mark> interactive</mark> puzzles and tasks.
                 </div>
@@ -316,82 +351,96 @@ export default function Unescape() {
                 <div className="paratitle">The state of subjectivity</div>
                 <div className="paratext">
                   The game offers a <mark>variety of puzzles</mark> and tasks
-                  that will <mark>challenge</mark> your <mark>problem-solving </mark>
+                  that will <mark>challenge</mark> your{" "}
+                  <mark>problem-solving </mark>
                   and <mark>lateral thinking</mark> skills.
-                  <br/><br/>
-                  The <mark>number</mark> and <mark>difficulty</mark> of puzzles will
-                  <mark> increase</mark> as you progress through the game and some
-                  problems require you to think <mark>outside the box</mark> 📦.
+                  <br />
+                  <br />
+                  The <mark>number</mark> and <mark>difficulty</mark> of puzzles
+                  will
+                  <mark> increase</mark> as you progress through the game and
+                  some problems require you to think{" "}
+                  <mark>outside the box</mark> 📦.
                 </div>
               </div>
             </Fade>
             <Fade right={true}>
               <div className="imagecont">
                 <div className="paratitle">The state of subjectivity</div>
-                <div className="imageframe" onClick={()=>{
-                  setPicture((picture+1)%5);
-                }}>
-                  {insights.map((imgsrc,xi)=>{
+                <div
+                  className="imageframe"
+                  onClick={() => {
+                    setPicture((picture + 1) % 5)
+                  }}>
+                  {insights.map((imgsrc, xi) => {
                     return (
                       <img
-                        className={picture==xi?"paraimage":"hiddenPhoto"}
+                        className={picture == xi ? "paraimage" : "hiddenPhoto"}
                         id="puzzleImg"
-                        src={imgsrc} alt=""/>
+                        src={imgsrc}
+                        alt=""
+                      />
                     )
                   })}
-
                 </div>
-                <div className="levelintro" id="fewords">{words[picture]}</div>
+                <div className="levelintro" id="fewords">
+                  {words[picture]}
+                </div>
               </div>
             </Fade>
           </div>
         </div>
         <div
-          className={proHeight>0?"prolayout":""}
+          className={proHeight > 0 ? "prolayout" : ""}
           style={{
-            height: proHeight>0?proHeight+'px':'auto',
-            maxHeight: 'max-content'
-          }}
-          >
-          <Progress/>
-          {proHeight>0?<div className="probtn" onClick={incHeight}>Expand</div>:null}
+            height: proHeight > 0 ? proHeight + "px" : "auto",
+            maxHeight: "max-content",
+          }}>
+          <Progress />
+          {proHeight > 0 ? (
+            <div className="probtn" onClick={incHeight}>
+              Expand
+            </div>
+          ) : null}
         </div>
-        <div className={showPuzz?"puzzleCont":""} id="puzzContainer">
-          {isHidden && showPuzz?(
-            <div className="puzzIcon"
-              onClick={()=>{
-                setHidden(false);
+        <div className={showPuzz ? "puzzleCont" : ""} id="puzzContainer">
+          {isHidden && showPuzz ? (
+            <div
+              className="puzzIcon"
+              onClick={() => {
+                setHidden(false)
               }}>
-              <ExtensionIcon/>
+              <ExtensionIcon />
               <span>Click me</span>
             </div>
-          ):null}
-          {!isHidden && !isCorrect?(
+          ) : null}
+          {!isHidden && !isCorrect ? (
             <div className="hiddenpuzz">
               <span>
-                If you have noticed there's is a hidden password (atmost 10 letters)
-                on this website. Find it to unlock a surprise
+                If you have noticed there's is a hidden password (atmost 10
+                letters) on this website. Find it to unlock a surprise
               </span>
               <input
-                className={"secretPuzz "+inputClass}
+                className={"secretPuzz " + inputClass}
                 type="text"
                 value={secpuz}
                 placeholder={prompt}
                 onChange={placeSec.bind(this)}
               />
-              <Button
-                variant="contained"
-                onClick={checkSec}
-                >check</Button>
+              <Button variant="contained" onClick={checkSec}>
+                check
+              </Button>
             </div>
-          ):null}
-          {isCorrect?(
+          ) : null}
+          {isCorrect ? (
             <span>
               Correct !!{" "}
-              <a href="https://bit.ly/2Ljsyq7" target="_blank">Here you go</a>
-              {" "}. . . , Thanks me later
+              <a href="https://bit.ly/2Ljsyq7" target="_blank">
+                Here you go
+              </a>{" "}
+              . . . , Thanks me later
             </span>
-          ):null}
+          ) : null}
         </div>
         <div className="subsband">
           <a href="#">

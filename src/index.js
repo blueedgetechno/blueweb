@@ -1,37 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Link } from "react-router-dom";
+import React from "react"
+import {createRoot} from "react-dom/client"
+import App from "./App"
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
-import Header from './components/header/header'
-import Footer from './components/footer/footer'
-import Unescape from './components/unescape/unescape'
+import Header from "./components/header/header"
+import Footer from "./components/footer/footer"
+import Unescape from "./components/unescape/unescape"
 
-import './index.css';
-import './assets/css/blobz.css';
+import "./index.css"
+import "./assets/css/blobz.css"
 
-if(process.env.NODE_ENV=="development"){
-  require('dotenv').config()
-}
+const domNode = document.getElementById("root")
+const root = createRoot(domNode)
 
-ReactDOM.render(
+root.render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
-        <Header/>
-        <Switch>
-          {/* <Route exact path='/' component = {App}/> */}
-          <Route exact path='/unescape' component = {Unescape}/>
-          <Route component={App} />
-        </Switch>
-        <Footer/>
+        <Header />
+        <Routes>
+          <Route exact path="/unescape" element={<Unescape/>} />
+          <Route path="*" element={<App/>} />
+        </Routes>
+        <Footer />
       </div>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-reportWebVitals();
+    </Router>
+  </React.StrictMode>
+)

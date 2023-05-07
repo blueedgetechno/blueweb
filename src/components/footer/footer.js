@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 // "@fortawesome/free-regular-svg-icons": "^5.15.1",
 
@@ -7,13 +6,13 @@ import {
   faGithub,
   faTwitter,
   faBehanceSquare,
-  faCodepen} from '@fortawesome/free-brands-svg-icons';
-import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
+  faCodepen,
+} from "@fortawesome/free-brands-svg-icons"
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
 
-import './footer.css';
+import "./footer.css"
 
-
-export default function Footer(){
+export default function Footer() {
   return (
     <div className="footer">
       <div className="footCont">
