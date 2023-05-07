@@ -17,13 +17,14 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: '16.6.1'
+        node-version: 16
+        cache: yarn
 
     - name: Install NPM packages
-      run: npm ci
+      run: yarn install --frozen-lockfile
 
     - name: Build project
-      run: CI=false npm run build
+      run: CI=false yarn build
       env:
         REACT_APP_SECRET_PUZZ: ${{ secrets.REACT_APP_SECRET_PUZZ }}
         REACT_APP_BLUEAPI: https://api.blueedge.me/api/
