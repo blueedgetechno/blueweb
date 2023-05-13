@@ -20,14 +20,14 @@ import { faHeart as faHeartOutLined } from "@fortawesome/free-regular-svg-icons"
 const ghsponser = 'https://github.com/sponsors/blueedgetechno'
 const bmcoffee = 'https://www.buymeacoffee.com/blueedgetechno'
 
+const sponsor_api = "https://ghs.vercel.app/sponsors/blueedgetechno"
+
 function Sponsors() {
   const [sponsors, setSponsors] = useState([])
 
   const fetchUsers = async () => {
     try {
-      var res = await fetch(
-        "https://sponsors.trnck.dev/sponsors/blueedgetechno"
-      ).then((x) => x.json())
+      var res = await fetch(sponsor_api).then(x => x.json())
       setSponsors(res.sponsors || [])
     } catch (err) {
       console.log(err)
