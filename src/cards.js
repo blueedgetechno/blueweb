@@ -114,7 +114,7 @@ export const SocialCard = (props)=>{
         </span>,</span></pre>
         <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">discord</span>: <span className="cm-string">
           <a className="sociolink" onClick={stoprop} href="https://discord.com/app"
-            target="_blank">"Blue Edge#1017"
+            target="_blank">"@blueedgetechno"
           </a>
         </span></span></pre>
         <pre className="CodeMirror-line" role="presentation"><span role="presentation" style={{paddingRight: '0.1px'}}> &nbsp;<span className="cm-property">youtube</span>: <span className="cm-string">
