@@ -9,7 +9,7 @@ import Progress from "./progress.js"
 import SplashScreen from "../../assets/img/unescape/splash.jpg"
 import unexp from "../../assets/img/unescape/unexp.png"
 
-import Fade from "react-reveal/Fade"
+import { motion } from "framer-motion"
 import Button from "@mui/material/Button"
 
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded"
@@ -317,77 +317,91 @@ export default function Unescape() {
             </div>
           </div>
           <div className="gamepara">
-            <Fade left={true}>
-              <div className="imagecont" id="firstCont">
-                <div className="paratitle">The realm of reality</div>
-                <div className="imageframe">
-                  <img className="paraimage" src={unexp} alt="unexp" />
-                </div>
-                <div className="levelintro">
-                  - A still from the ongoing game unescape
-                </div>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="imagecont"
+              id="firstCont"
+            >
+              <div className="paratitle">The realm of reality</div>
+              <div className="imageframe">
+                <img className="paraimage" src={unexp} alt="unexp" />
               </div>
-            </Fade>
-            <Fade right={true}>
-              <div className="paracol">
-                <div className="paratitle">The realm of reality</div>
-                <div className="paratext">
-                  A <mark>3d game</mark>, full of{" "}
-                  <mark>secrets and puzzles</mark> to test your
-                  <mark> critical thinking</mark> throughout the way.
-                  <br />
-                  <br />
-                  In this immersive <mark>point & click </mark>puzzler, you will
-                  face
-                  <mark> multiples levels</mark> of growing difficulty with
-                  <mark> interactive</mark> puzzles and tasks.
-                </div>
+              <div className="levelintro">
+                - A still from the ongoing game unescape
               </div>
-            </Fade>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="paracol"
+            >
+              <div className="paratitle">The realm of reality</div>
+              <div className="paratext">
+                A <mark>3d game</mark>, full of{" "}
+                <mark>secrets and puzzles</mark> to test your
+                <mark> critical thinking</mark> throughout the way.
+                <br />
+                <br />
+                In this immersive <mark>point & click </mark>puzzler, you will
+                face
+                <mark> multiples levels</mark> of growing difficulty with
+                <mark> interactive</mark> puzzles and tasks.
+              </div>
+            </motion.div>
           </div>
           <div className="gamepara">
-            <Fade left={true}>
-              <div className="paracol">
-                <div className="paratitle">The state of subjectivity</div>
-                <div className="paratext">
-                  The game offers a <mark>variety of puzzles</mark> and tasks
-                  that will <mark>challenge</mark> your{" "}
-                  <mark>problem-solving </mark>
-                  and <mark>lateral thinking</mark> skills.
-                  <br />
-                  <br />
-                  The <mark>number</mark> and <mark>difficulty</mark> of puzzles
-                  will
-                  <mark> increase</mark> as you progress through the game and
-                  some problems require you to think{" "}
-                  <mark>outside the box</mark> 📦.
-                </div>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="paracol"
+            >
+              <div className="paratitle">The state of subjectivity</div>
+              <div className="paratext">
+                The game offers a <mark>variety of puzzles</mark> and tasks
+                that will <mark>challenge</mark> your{" "}
+                <mark>problem-solving </mark>
+                and <mark>lateral thinking</mark> skills.
+                <br />
+                <br />
+                The <mark>number</mark> and <mark>difficulty</mark> of puzzles
+                will
+                <mark> increase</mark> as you progress through the game and
+                some problems require you to think{" "}
+                <mark>outside the box</mark> 📦.
               </div>
-            </Fade>
-            <Fade right={true}>
-              <div className="imagecont">
-                <div className="paratitle">The state of subjectivity</div>
-                <div
-                  className="imageframe"
-                  onClick={() => {
-                    setPicture((picture + 1) % 5)
-                  }}>
-                  {insights.map((imgsrc, xi) => {
-                    return (
-                      <img
-                        className={picture == xi ? "paraimage" : "hiddenPhoto"}
-                        id="puzzleImg"
-                        src={imgsrc}
-                        alt=""
-                      />
-                    )
-                  })}
-                </div>
-                <div className="levelintro" id="fewords">
-                  {words[picture]}
-                </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="imagecont"
+            >
+              <div className="paratitle">The state of subjectivity</div>
+              <div
+                className="imageframe"
+                onClick={() => {
+                  setPicture((picture + 1) % 5)
+                }}
+              >
+                {insights.map((imgsrc, xi) => {
+                  return (
+                    <img
+                      className={picture == xi ? "paraimage" : "hiddenPhoto"}
+                      id="puzzleImg"
+                      src={imgsrc}
+                      alt=""
+                    />
+                  )
+                })}
               </div>
-            </Fade>
+              <div className="levelintro" id="fewords">
+                {words[picture]}
+              </div>
+            </motion.div>
           </div>
         </div>
         <div
